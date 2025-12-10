@@ -1,0 +1,2286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Ecological Statistics - Sample Dataset and Analyses</title>
+</head>
+<body>
+<table>
+<tr>
+  <td>
+  <b><font size=6>Ecological Statistics: <br>Sample Datasets<br>and Analyses
+     </font></b>
+  </td>
+  <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+  <td>
+  Presented by<br>
+  <b><font size=4>StatMathComp<br> Consulting<br>by Schwarz, Inc</font></b>
+</td>
+  <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td>
+<a href=http://www.sfu.ca/~cschwarz>Carl James Schwarz</a> &nbsp;<a>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; <a href=http://www.sfu.ca/~cschwarz/2018-Fellow-ASA.pdf>Fellow of the American Statistical Association</a>
+<br> &nbsp; &nbsp; &nbsp; &nbsp; Accredited Professional Statistician
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.sfu.ca/~cschwarz/PStat007smaller.jpg">P.Stat. (Statistical Society of Canada)</a>,
+<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.sfu.ca/~cschwarz/Schwarz-pstat-asa.pdf">PStat&reg; (American Statistical Association)</a>
+
+</td>
+</table>
+<hr>
+
+Use the <b>find</b> feature of your browser to locate the datafile of interest.<br>
+
+
+<p>Several analyses make reference to the <a href="schwarz.functions.r">Schwarz Helper Functions available here</a>.
+
+
+
+<table border>
+
+<tr>
+  <th align=left>Description</th>
+  <th align=left>Topics covered</th>
+  <th>Data, Code, Output</th>
+</tr>
+
+
+<!--
+<tr><td>Misc Datasets</td>
+<td>Simple Random Sample, Basic descriptive Statistics, <br>
+Side-by-side box plots; dot-plots; histograms</td>
+<td>
+    <a href=Intro/DDT/ddt.sas>ddt.sas</a>, <a href=Intro/DDT/ddt.csv>ddt.csv</a>, <a href=Intro/DDT/ddt-SAS.pdf>ddt.pdf</a><br>
+    <a href=Intro/DDT/ddt2g.sas>dd2gt.sas</a>, <a href=Intro/DDT/ddt2g.csv>ddt2g.csv</a>, <a href=Intro/DDT/ddt2g-SAS.pdf>ddt2g.pdf</a><br>
+     <a href=Intro/DrugLBI/druglbi.sas>druglbi.sas</a>, <a href=Intro/DrugLBI/druglbi.csv>druglbi.csv</a>
+     <a href=Intro/DrugLBI/druglib-SAS.pdf>druglib.pdf</a><br>
+<a href=IntroStats/BarleyYields/barleyyields.sas>barleyyields.sas</a>
+<a href=IntroStats/BarleyYields/barleyyields.pdf>barleyyields.pdf</a><br>
+</td>
+<td>
+    <a href=Intro/DDT/ddt.jmp>ddt.jmp</a><br>
+    <a href=Intro/DDT/DDT2g.jmp>ddt2g.jmp</a><br>
+    NO JMP file for DrugLBI<br>
+<a href=IntroStats/BarleyYields/barleyyields.txt>barleyyields.txt</a>
+    <a href=IntroStats/BarleyYields/barleyyields.jmp>barleyyields.jmp</a><br>
+<td>
+    <a href=Intro/DDT/ddt.r>ddt.r</a>, &nbsp; &nbsp;  <a href=Intro/DDT/ddt.csv>ddt.csv</a>, 
+    <a href=Intro/DDT/ddt.html>ddt.html (R output)</a><br>
+
+    <a href=Intro/DDT/ddt2g.r>ddt2g.r</a>, &nbsp; &nbsp; <a href=Intro/DDT/ddt2g.html>ddt2g.html (R output)</a> <br>
+
+    <a href=Intro/DrugLBI/druglbi.r>druglbi.r</a>, <a href=Intro/DrugLBI/druglbi.csv>druglbi.csv</a> <br>
+    No R code for barleyyields<br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr>
+<td>Road Accidents 2010</td>
+<td colspan=4>Road Accidents involving injury in Great Britain in 2010<br>
+    <a href=Misc/Accidents2010/road-accidents-2010.csv>road-accidents-2010.csv</a> &nbsp; &nbsp;
+    <a href=Misc/Accidents2010/road-accidents-2010-data-guide.xls>code book (xls)</a> &nbsp; &nbsp;
+    <a href=Misc/Accidents2010/road-accidents-guide.doc>data guide (doc)</a>
+</td>
+</tr>
+
+<tr><td>Annual discharge</td>
+<td>Annual peak discharge of Saddle River, NJ.<br>
+ Percentiles, confidence intervals for percentiles<br>
+ Tolerance intervals</td>
+<td><a href=Summary/Flow/flow.sas>flow.sas</a><br>
+    <a href=Summary/Flow/flow.lst>flow.lst</a></td>
+<td><a href=Summary/Flow/flow.jmp>flow.jmp</a></td></tr>
+
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Creel survey</td>
+<td>Simple Random Sample</td>
+<td><a href=Survey/Creel/creel.sas>creel.sas</a> &nbsp; &nbsp;
+    <a href=Survey/Creel/creel.csv>creel.csv</a><br>
+    <a href=Survey/Creel/creel.pdf>creel.pdf (SAS Output)</a></td>
+<td><a href=Survey/Creel/creel.jmp>creel.jmp</a> </td>
+<td><a href=Survey/Creel/creel.r>creel.r</a> &nbsp; &nbsp;
+    <a href=Survey/Creel/creel.csv>creel.csv</a><br>
+    <a href=Survey/Creel/creel.html>creel.html (R output)</td>
+</tr>
+
+<tr><td>Survey Sample Size Determination</td>
+<td>Simple Random Sample</td>
+<td>
+<a href=Survey/SampleSize/SurveySampleSize.sas>SurveySampleSize.sas</a><br>
+<a href=Survey/SampleSize/SurveySampleSize.pdf>SurveySampleSize.pdf (SAS Output)</a>
+</td>
+<td>Refer to SampleSize tab in the ALLofData.xls worbook available at top of page.
+</td></tr>
+
+<tr><td>Sockeye survey</td>
+<td>Stratified Design, Simple Random Sample (SRS) in each stratum</td>
+<td><a href=Survey/Sockeye/sockeye.sas>sockeye.sas</a>&nbsp; &nbsp;
+    <a href=Survey/Sockeye/sockeye.csv>sockeye.csv</a>
+    <a href=Survey/Sockeye/sockeye.pdf>sockeye.pdf (SAS Output)</a></td>
+<td><a href=Survey/Sockeye/sockeye.jmp>sockeye.jmp</a></td>
+<td><a href=Survey/Sockeye/sockeye.r>sockeye.r</a>  &nbsp; &nbsp;
+    <a href=Survey/Sockeye/sockeye.csv>sockeye.csv</a><br>
+    <a href=Survey/Sockeye/sockeye.html>sockeye.html (R output)</a></td>
+</tr>
+
+<tr><td>Caribou survey</td>
+<td>Sample allocation in Stratified Design with Simple Random Sampling in each strata</td>
+<td></td>
+<td>caribou.xls - See the caribou tab in the AllofData workbook
+</td>
+</tr>
+
+<tr><td>Estimating number of tundra swans</td>
+<td>Stratified Design; Simple Random Sample in each stratum </td>
+<td><a href=Survey/Tundra/tundra.sas>tundra.sas</a> &nbsp; &nbsp;
+    <a href=Survey/Tundra/tundra.csv>tundra.csv</a><br>
+    <a href=Survey/Tundra/tundra.pdf>tundra.pdf (SAS Output)</a></td>
+<td><a href=Survey/Tundra/tundra.jmp>tundra.jmp</a></td>
+<td><a href=Survey/Tundra/tundra.r>tundra.r</a> &nbsp; &nbsp;
+    <a href=Survey/Tundra/tundra.csv>tundra.csv</a><br>
+    <a href=Survey/Tundra/tundra.html>tundra.html (R output)</a></td>
+</tr>
+
+<tr><td>Estimating number of grubs</td>
+<td>Post-stratified Design after Simple Random Sample </td>
+<td><a href=Survey/PostStrata/post-stratify.sas>post-stratify.sas</a> &nbsp;&nbsp;
+    <a href=Survey/PostStrata/post-stratify.csv>post-stratify.csv</a><br>
+    <a href=Survey/PostStrata/post-stratify-SAS.pdf>post-stratify-SAS.pdf (SAS Output)</a> </td>
+<td><a href=Survey/PostStrata/post-strata-example.jmp>post-strata-example.jmp</a></td>
+<td><a href=Survey/PostStrata/post-stratify.r>post-stratify.r</a> &nbsp; &nbsp;
+    <a href=Survey/PostStrata/post-stratify.csv>post-stratify.csv</a><br>
+    <a href=Survey/PostStrata/post-stratify.html>post-stratify.html (R output)</a></td>
+</tr>
+
+
+<tr><td>Wolf/moose ratio</td>
+<td>Simple Random Sample with ratio estimator</td>
+<td><a href=Survey/Wolf/wolf.sas>wolf.sas</a>&nbsp; &nbsp;
+    <a href=Survey/Wolf/wolf.csv>wolf.csv</a><br>
+    <a href=Survey/Wolf/wolf-SAS.pdf>wolf-SAS.pdf (SAS Output)</a></td>
+<td> <a href=Survey/Wolf/wolf.jmp>wolf.jmp</a><br>
+    This includes an example of sample size determination
+    for a ratio estimator. </td>
+<td><a href=Survey/Wolf/wolf.r>wolf.r</a> &nbsp; &nbsp;
+    <a href=Survey/Wolf/wolf.csv>wolf.csv</a><br>
+    <a href=Survey/Wolf/wolf.html>wolf.html (R output)</a></td>
+</tr>
+
+<tr><td>Grouse numbers</td>
+<td>Simple Random Sample with ratio estimator of total</td>
+<td><a href=Survey/Grouse/grouse.sas>grouse.sas</a> &nbsp; &nbsp;
+    <a href=Survey/Grouse/grouse.csv>grouse.csv</a><br>
+    <a href=Survey/Grouse/grouse-SAS.pdf>grouse-SAS.pdf (SAS Output)</a></td>
+<td> <a href=Survey/Grouse/grouse.jmp>grouse.jmp</a></td>
+<td><a href=Survey/Grouse/grouse.r>grouse.r</a> &nbsp; &nbsp;
+    <a href=Survey/Grouse/grouse.csv>grouse.csv</a><br>
+    <a href=Survey/Grouse/grouse.html>grouse.html (R output)</a></td>
+</tr>
+
+
+
+
+<tr><td>Urchin densities</td>
+<td>Cluster sampling using a Simple Random Sample</td>
+<td><a href=Survey/Urchin/urchin.sas>urchin.sas</a> &nbsp; &nbsp;
+    <a href=Survey/Urchin/urchin.csv>urchin.csv</a><br>
+    <a href=Survey/Urchin/urchin-SAS.pdf>urchin-SAS.pdf (SAS Output)</a></td>
+<td><a href=Survey/Urchin/urchin.csv>urchin.csv</a><br>
+    <a href=Survey/Urchin/urchin.jmp>urchin.jmp</a></td>
+<td><a href=Survey/Urchin/urchin.r>urchin.r</a>  &nbsp; &nbsp;
+    <a href=Survey/Urchin/urchin.csv>urchin.csv</a><br>
+    <a href=Survey/Urchin/urchin.html>urchin.html (R output)</a></td>
+</tr>
+
+<tr><td>Cucumber densities</td>
+<td>Cluster sampling using a Simple Random Sample<br>
+    when only the summary data is available     </td>
+<td><a href=Survey/Cucumber/cucumber.sas>cucumber.sas</a> &nbsp; &nbsp;
+    <a href=Survey/Cucumber/cucumber.csv>cucumber.csv</a><br>
+    <a href=Survey/Cucumber/cucumber-SAS.pdf>cucumber-SAS.pdf (SAS Output)</a></td>
+<td></td>
+<td><a href=Survey/Cucumber/cucumber.r>cucumber.r</a>  &nbsp; &nbsp;
+    <a href=Survey/Cucumber/cucumber.csv>cucumber.csv</a><br>
+    <a href=Survey/Cucumber/cucumber.html>cucumber.html (R output)</a></td>
+</td></tr>
+
+<tr><td>Wild Oyster densities</td>
+<td>Two-stage sampling using a Simple Random Sample</td>
+<td><a href=Survey/WildOyster/wildoyster.sas>wildoyster.sas</a> &nbsp; &nbsp;
+    <a href=Survey/WildOyster/wildoyster.csv>wildoyster.csv</a><br>
+    <a href=Survey/WildOyster/wildoyster-SAS.pdf>wildoyster-SAS.pdf</a></td>
+<td><a href=Survey/WildOyster/wildoyster.csv>wildoyster.csv</a><br>
+    <a href=Survey/WildOyster/wildoyster.jmp>wildoyster.jmp</a></td>
+<td><a href=Survey/WildOyster/wildoyster.r>wildoyster.r</a> &nbsp; &nbsp;
+    <a href=Survey/WildOyster/wildoyster.csv>wildoyster.csv</a><br>
+    <a href=Survey/WildOyster/wildoyster.html>wildoyster.html (R output)</a></td>
+</tr>
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+
+<tr><td>Height and Weights of children (12 years of age)
+<td>CRD, single factor, 2 levels</td>
+<td><a href=ANOVA-1fact-crd/Htwt12/htwt12.sas>htwt12.sas</a><br>
+    <a href=ANOVA-1fact-crd/Htwt12/htwt12.csv>htwt12.csv</a><br>
+    <a href=ANOVA-1fact-crd/Htwt12/htwt12-SAS.pdf>htwt12.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Htwt12/htwt12.jmp>htwt12.jmp</a><br> </td>
+<td><a href=ANOVA-1fact-crd/Htwt12/htwt12.r>htwt12.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-crd/Htwt12/htwt12.csv>htwt12.csv</a><br> 
+    <a href=ANOVA-1fact-crd/Htwt12/htwt12.html>htwt12.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+<tr><td>Tumor sizes from high/low fat diet</td>
+<td>CRD, single factor, 2 levels</td>
+<td><a href=ANOVA-1fact-crd/Fattumor/fattumor.sas>fattumor.sas</a><br>
+    <a href=ANOVA-1fact-crd/Fattumor/fattumor.csv>fattumor.csv</a><br>
+    <a href=ANOVA-1fact-crd/Fattumor/fattumor-SAS.pdf>fattumor.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Fattumor/fattumor.jmp>fattumor.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/Fattumor/fattumor.r>fattumor.r</a> &nbsp;&nbsp;
+    <a href=ANOVA-1fact-crd/Fattumor/fattumor.csv>fattumor.csv</a><br>
+    <a href=ANOVA-1fact-crd/Fattumor/fattumor.html>fattumor.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+
+<tr><td>Weight gain after administering hormones</td>
+<td>CRD, single factor, 2 levels</td>
+<td><a href=ANOVA-1fact-crd/Hormone/hormone.sas>hormone.sas</a><br>
+    <a href=ANOVA-1fact-crd/Hormone/hormone.csv>hormone.csv</a><br>
+    <a href=ANOVA-1fact-crd/Hormone/hormone-SAS.pdf>hormone.pdf</a> </td>
+<td> <a href=ANOVA-1fact-crd/Hormone/hormone.jmp>hormone.jmp</a></td>
+<td> <a href=ANOVA-1fact-crd/Hormone/hormone.r>hormone.r</a> &nbsp; &nbsp;
+     <a href=ANOVA-1fact-crd/Hormone/hormone.csv>hormone.csv</a><br>
+     <a href=ANOVA-1fact-crd/Hormone/hormone.html>hormone.html (R output)</a><br>
+     <a href=schwarz.functions.r>Schwarz helper functions</a>
+     </td>
+</tr>
+ 
+<tr><td>Power analysis /sample size determination for two sample t-test</td>
+<td>CRD, single factor, 2 levels, power<br>Hormone example</td>
+<td><a href=ANOVA-1fact-crd/Power/power-ttest.sas>power-ttest.sas</a><br>
+    <a href=ANOVA-1fact-crd/Power/power-ttest-SAS.pdf>power-ttest.pdf</a></td>
+<td> </td>
+<td><a href=ANOVA-1fact-crd/Power/power-ttest.r>power-ttest.r</a>&nbsp;&nbsp;&nbsp;<br>
+    <a href=ANOVA-1fact-crd/Power/power-ttest.html>power-ttest.html (R output)</a></td>
+</tr>
+
+
+<tr><td>Contrived example to illustrate principles of ANOVA</td>
+<td>CRD, single factor</td>
+<td><a href=ANOVA-1fact-crd/Example/anova-example.sas>anova-example.sas</a><br>
+    <a href=ANOVA-1fact-crd/Example/anova-example-SAS.pdf>anova-example.pdf</a> </td>
+<td><a href=ANOVA-1fact-crd/Example/anova-example.jmp>anova-example.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/Example/anova-example.r>anova-example.r</a><br>
+    <a href=ANOVA-1fact-crd/Example/anova-example.csv>anova-example.csv</a><br>
+    <a href=ANOVA-1fact-crd/Example/anova-example.html>anova-example.html (R ouptut)</a>
+    </td>
+</tr>
+
+<tr><td>Potato peeling</td>
+<td>CRD, single factor</td>
+<td><a href=ANOVA-1fact-crd/Potato/potato.sas>potato.sas</a><br>
+    <a href=ANOVA-1fact-crd/Potato/potato.csv>potato.csv</a><br>
+    <a href=ANOVA-1fact-crd/Potato/pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-crd/Potato/potato-SAS.pdf>potato.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Potato/potato.jmp>potato.jmp</a><br>
+    <a href=ANOVA-1fact-crd/Potato/potato.jrn>potato.jrn</a></td>
+<td><a href=ANOVA-1fact-crd/Potato/potato.r>potato.r</a>
+    <a href=ANOVA-1fact-crd/Potato/potato.csv>potato.csv</a><br>
+    <a href=ANOVA-1fact-crd/Potato/potato.html>potato.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Outlier effect on ANOVA</td>
+<td>CRD, single factor, showing effect of outliers</td>
+<td></td>
+<td><a href=ANOVA-1fact-crd/Outliers/ANOVAoutliers-mac.jsl> ANOVA outliers - (Mac version)</a><br>
+    <a href=ANOVA-1fact-crd/Outliers/ANOVAoutliers-windoze.jsl>ANOVA outliers - (Windoze version)</a><br>
+    <a href=ANOVA-1fact-crd/Outliers/ANOVAoutliers-readme.txt>ANOVA outliers - Instructions</a></td></tr>
+
+<tr><td>Phosphor content in leaves</td>
+<td>CRD, single factor</td>
+<td><a href=ANOVA-1fact-crd/Phosphor/phosphor.sas>phosphor.sas</a><br>
+    <a href=ANOVA-1fact-crd/Phosphor/phosphor.csv>phosphor.csv</a><br>
+    <a href=ANOVA-1fact-crd/Phosphor/pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-crd/Phosphor/phosphor-SAS.pdf>phosphor.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Phosphor/phosphor.jmp>phosphor.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/Phosphor/phosphor.r>phosphor.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-crd/Phosphor/phosphor.csv>phosphor.csv</a><br>
+    <a href=ANOVA-1fact-crd/Phosphor/phosphor.html>phosphor.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Lifetimes of brands of batteries</td>
+<td>CRD, single factor</td>
+<td><a href=ANOVA-1fact-crd/Battery/battery.sas>battery.sas</a><br>
+    <a href=ANOVA-1fact-crd/Battery/battery.csv>battery.csv</a><br>
+    <a href=ANOVA-1fact-crd/Battery/pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-crd/Battery/battery-SAS.pdf>battery.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Battery/battery.jmp>battery.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/Battery/battery.r>battery.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-crd/Battery/battery.csv>battery.csv</a><br>
+    <a href=ANOVA-1fact-crd/Battery/battery.html>battery.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Cuckoo eggs</td>
+<td>CRD, single factor</td>
+<td><a href=ANOVA-1fact-crd/Cuckoo/cuckoo.sas>cuckoo.sas</a><br>
+    <a href=ANOVA-1fact-crd/Cuckoo/cuckoo.csv>cuckoo.csv</a><br>
+    <a href=ANOVA-1fact-crd/Cuckoo/pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-crd/Cuckoo/cuckoo-SAS.pdf>cuckoo.pdf</a></td>
+<td><a href=ANOVA-1fact-crd/Cuckoo/cuckoo.jmp>cuckoo.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/Cuckoo/cuckoo.r>cuckoo.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-crd/Cuckoo/cuckoo.csv>cuckoo.csv</a><br>
+    <a href=ANOVA-1fact-crd/Cuckoo/cuckoo.html>cuckoo.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Lifetimes of fruit flies</td>
+<td>CRD, single factor<br>
+Code book available at <a href="http://www.amstat.org/publications/jse/datasets/fruitfly.txt">fruitfly.txt</a> </td>
+<td><a href=ANOVA-1fact-crd/FruitFly/fruitfly.sas>fruitfly.sas</a><br>
+    <a href=ANOVA-1fact-crd/FruitFly/fruitfly.csv>fruitfly.csv</a><br>
+    <a href=ANOVA-1fact-crd/FruitFly/pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-crd/FruitFly/fruitfly-SAS.pdf>fruitfly.pdf</a>
+<td><a href=ANOVA-1fact-crd/FruitFly/fruitfly.jmp>fruitfly.jmp</a></td>
+<td><a href=ANOVA-1fact-crd/FruitFly/fruitfly.r>fruitfly.r</a>&nbsp;&nbsp;&nbsp;
+    <a href=ANOVA-1fact-crd/FruitFly/fruitfly.csv>fruitfly.csv</a><br>
+    <a href=ANOVA-1fact-crd/FruitFly/fruitfly.html>fruitfly.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+</td>
+</tr>
+
+<tr>
+<td>Cuckoo example, CRD</td>
+<td>Power analysis /sample size determination for CRD, single factor, ANOVA, power</td>
+<td><a href=ANOVA-1fact-crd/Power/power-1fact.sas>power-1fact.sas</a><br>
+    <a href=ANOVA-1fact-crd/Power/power-1fact-SAS.pdf>power-1fact.pdf</a></td>
+<td>  </td>
+<td><a href=ANOVA-1fact-crd/Power/power-1fact.r>power-1fact.r</a>&nbsp;&nbsp;&nbsp;<br>
+    <a href=ANOVA-1fact-crd/Power/power-1fact.html>power-1fact.html (R output)</a><br>
+</tr>
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Stream slope and trout density</td>
+<td>RCB, single factor - paired</td>
+<td><a href=ANOVA-1fact-rcb/PairedStream/paired-stream.sas>paired-stream.sas</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream.csv>paired-stream.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream-SAS.pdf>paired-stream.pdf</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedStream/paired-stream.jmp>paired-stream.jmp</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream-anal1.pdf>Details of analysis 1 - pdf</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream-anal2.pdf>Details of analysis 2 - pdf</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream-anal3.pdf>Details of analysis 3 - pdf</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream-anal4.pdf>Details of analysis 4 - pdf</a><br>
+    </td>
+<td><a href=ANOVA-1fact-rcb/PairedStream/paired-stream.r>paired-stream.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream.csv>paired-stream.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/paired-stream.html>paired-stream.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Quality check on two laboratories</td>
+<td>RCB, single factor - paired</td>
+<td><a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.sas>paired-labs.sas</a><br>
+    <a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.csv>paired-labs.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedLabs/paired-labs-SAS.pdf>paired-labs.pdf</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.jmp>paired-labs.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.r>paired-labs.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.csv>paired-labs.csv</a>
+    <a href=ANOVA-1fact-rcb/PairedLabs/paired-labs.html>paired-labs.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Comparing yields using paired plantings</td>
+<td>RCB, single factor - paired, effect of outlier</td>
+<td><a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.sas>paired-barley.sas</a><br>
+    <a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.csv>paired-barley.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.pdf>paired-barley.pdf</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.jmp>paired-barley.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.r>paired-barley.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.csv>paired-barley.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedBarley/paired-barley.html>paired-barley.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Comparing lesion counts using paired application</td>
+<td>RCB, single factor - paired, effect of outlier</td>
+<td><a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.sas>paired-virus.sas</a><br>
+    <a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.csv>paired-virus.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedVirus/paired-virus-SAS.pdf>paired-virus.pdf</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.jmp>paired-virus.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.r>paired-virus.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.csv>paired-virus.csv</a><br>
+    <a href=ANOVA-1fact-rcb/PairedVirus/paired-virus.html>paired-virus.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Comparing turbidity at two sites on a creek</td>
+<td>RCB, single factor - paired</td>
+<td><a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareBBvsCoombs.sas>TurbidityCompareBBvsCoombs.sas</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.csv>TurbidityCompare.csv</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareBBvsCoombs.pdf>TurbidityCompareBBvsCoombs.pdf</a></td>
+<td><a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.jmp>TurbidityCompare.jmp</a></td>
+<td>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareBBvsCoombs.r>TurbidityCompareBBvsCoombs.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.csv>TurbidityCompare.csv</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareBBvsCoombs.html>TurbidityCompareBBvsCoombs.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+
+<tr><td>Power analysis /sample size determination for paired t-test</td>
+<td>RCB, single factor, 2 levels, power<br>Stream slope example</td>
+<td><a href=ANOVA-1fact-rcb/PairedStream/power-stream.sas>power-stream.sas</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/power-stream-SAS.pdf>power-stream.pdf</a> </td>
+<td> </td>
+<td><a href=ANOVA-1fact-rcb/PairedStream/power-stream.r>power-stream.r</a><br>
+    <a href=ANOVA-1fact-rcb/PairedStream/power-stream.html>power-stream.html (R output)</a>
+   </td>
+</tr>
+
+<tr><td>Effect of salinity upon growth of plants</td>
+<td>RCB - single factor - 6 levels<br>
+    Complete block; missing values but connected; unconnected </td>
+<td><a href=ANOVA-1fact-rcb/Salt/salt.sas>salt.sas</a><br>
+    <a href=ANOVA-1fact-rcb/Salt/salt.csv>salt.csv</a><br>
+    <a href=ANOVA-1fact-rcb/Salt/salt-SAS.pdf>salt.pdf</a><br>
+    <a href=ANOVA-1fact-rcb/Salt/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-1fact-rcb/Salt/salt.jmp>salt.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/Salt/salt.r>salt.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/Salt/salt.csv>salt.csv</a><br>
+    <a href=ANOVA-1fact-rcb/Salt/salt.html>salt.html (R output)</a><br>
+    Including dealing with missing values
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Herbicide effects upon growth</td>
+<td>RCB - single factor - 4 levels</td>
+<td><a href=ANOVA-1fact-rcb/Herbicide/herbicide.sas>herbicide.sas</a><br>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide.csv>herbicide.csv</a><br>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide-SAS.pdf>herbicide.pdf</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-1fact-rcb/Herbicide/herbicide.jmp>herbicide.jmp</a></td>
+<td>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide.r>herbicide.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide.csv>herbicide.csv</a><br>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide.html>herbicide.html</a> (R output)<br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Systolic Blood pressure at presyncope</td>
+<td>RCB - single factor; power analysis </td>
+<td><a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.sas>BPatPresyncope.sas</a><br>
+    <a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.pdf>BPatPresyncope.pdf</a><br>
+    <a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.csv>BPatPresyncope.csv</a></td>
+<td><a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.jmp>BPatPresyncope.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.r>BPatPresyncope.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.csv>BPatPresyncope.csv</a><br>
+    <a href=ANOVA-1fact-rcb/Presyncope/BPatPresyncope.html>BPatPresyncope.html</a> (R output)<br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+</td>
+</tr>
+
+<tr><td>Comparing turbidity at several sites on a creek</td>
+<td>RCB, single factor - 5 levels, missing data </td>
+<td><a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareRCB.sas>TurbidityCompareRCB.sas</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.csv>TurbidityCompare.csv</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareRCB.pdf>TurbidityCompareRCB.pdf</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.jmp>TurbidityCompare.jmp</a></td>
+<td><a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareRCB.r>TurbidityCompareRCB.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompare.csv>TurbidityCompare.csv</a><br>
+    <a href=ANOVA-1fact-rcb/FrenchCreek/TurbidityCompareRCB.html>TurbidityCompareRCB.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+</td>
+</tr>
+
+
+<tr><td>Power analysis /sample size determination for RCB (approximate)</td>
+<td>RCB, single factor, 2+ levels, power<br>Herbicide example</td>
+<td><a href=ANOVA-1fact-rcb/Herbicide/herbicide-power.sas>herbicide-power.sas</a><br>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide-power-SAS.pdf>herbicide-power.pdf</a></td>
+<td>  </td>
+<td><a href=ANOVA-1fact-rcb/Herbicide/herbicide-power.r>herbicide-power.r</a><br>
+    <a href=ANOVA-1fact-rcb/Herbicide/herbicide-power.html>herbicide-power.html</a> (R output)
+</td>
+</tr>
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+
+
+<tr><td>Water Quality</td>
+<td>Incomplete block design - single factor<br>
+    Compare water quality at three locations relative to development </td>
+<td><a href=ANOVA-IncBlocks/WaterQuality/water-quality.sas>water-quality.sas</a><br>
+    <a href=ANOVA-IncBlocks/WaterQuality/water-quality.csv>water-quality.csv</a><br>
+    <a href=ANOVA-IncBlocks/WaterQuality/water-quality-SAS.pdf>water-quality.pdf</a></td>
+<td><a href=ANOVA-IncBlocks/WaterQuality/water-quality.jmp>water-quality.jmp</a></td>
+<td><a href=ANOVA-IncBlocks/WaterQuality/water-quality.r>water-quality.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-IncBlocks/WaterQuality/water-quality.csv>water-quality.csv</a>
+    <a href=ANOVA-IncBlocks/WaterQuality/water-quality.html>water-quality.html</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+</td>
+</tr>
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Flagella Lengths</td>
+<td>Estimating the mean under subsampling</td>
+<td><a href=SingleMean/Flagella1/flagella1.sas>flagella1.sas</a><br>
+    <a href=SingleMean/Flagella1/flagella1.csv>flagella1.csv</a><br>
+    <a href=SingleMean/Flagella1/flagella1.pdf>flagella1.pdf</a></td>
+<td><a href=SingleMean/Flagella1/flagella1.jmp>flagella1.jmp</a></td>
+<td><a href=SingleMean/Flagella1/flagella1.r>flagella1.r    </a> &nbsp; &nbsp;
+    <a href=SingleMean/Flagella1/flagella1.csv>flagella1.csv</a><br>
+    <a href=SingleMean/Flagella1/flagella1.html>flagella1.html (R output)</a></td>
+</tr>
+
+
+<tr><td>Fat levels in fish of different species</td>
+<td>CRD - single factor - subsampling</td>
+<td><a href=ANOVA-1fact-sub/FishFat/fat.sas>fat.sas</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/FishFat/fat.csv>fat.csv</a><br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-sub/FishFat/fat.pdf>fat.pdf</a></td>
+<td><a href=ANOVA-1fact-sub/FishFat/fat.jmp>fat.jmp</a><br>
+    <a href=ANOVA-1fact-sub/FishFat/fat-anal1.pdf>Details of analysis 1 - pdf</a><br>
+    <a href=ANOVA-1fact-sub/FishFat/fat-anal2.pdf>Details of analysis 2 - pdf</a><br>
+    <a href=ANOVA-1fact-sub/FishFat/fat-optimize.xls>fat-optimize.xls</a></td>
+<td><a href=ANOVA-1fact-sub/FishFat/fat.r>fat.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/FishFat/fat.csv>fat.csv</a><br>
+    <a href=ANOVA-1fact-sub/FishFat/fat.html>fat.html (R Output)</a></td>
+</tr>
+
+<tr><td>Flagella Lengths</td>
+<td>CRD - single factor - subsampling</td>
+<td><a href=ANOVA-1fact-sub/Flagella2/flagella2.sas>flagella2.sas</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/Flagella2/flagella2.csv>flagella2.csv</a><br>
+    <a href=ANOVA-1fact-sub/Flagella2/flagella2-SAS.pdf>flagella2-SAS.pdf (SAS Output)</a></td>
+<td><a href=ANOVA-1fact-sub/Flagella2/flagella2.jmp>flagella2.jmp</a></td>
+<td><a href=ANOVA-1fact-sub/Flagella2/flagella2.r>flagella2.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/Flagella2/flagella2.csv>flagella2.csv</a><br>
+    <a href=ANOVA-1fact-sub/Flagella2/flagella2.html>flagella2.html (R Output)</a></td>
+</tr>
+
+<tr><td>Effects of UV radiation on fish growth</td>
+<td>RCB - single factor - subsampling</td>
+<td><a href=ANOVA-1fact-sub/UVExp/uvexp.sas>uvexp.sas</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/UVExp/uvexp.csv>uvexp.csv</a><br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-sub/UVExp/uvexp.pdf>uvexp.pdf</a></td>
+<td><a href=ANOVA-1fact-sub/UVExp/uvexp.jmp>uvexp.jmp</a></td>
+<td><a href=ANOVA-1fact-sub/UVExp/uvexp.r>uvexp.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/UVExp/uvexp.csv>uvexp.csv</a><br>
+    <a href=ANOVA-1fact-sub/UVExp/uvexp.html>uvexp.html (R Output)</a></td>
+</tr>
+
+<tr><td>Monitor fry density over time</td>
+<td>RCB - single factor (time) - subsampling</td>
+<td><a href=ANOVA-1fact-sub/Fry/fry.sas>fry.sas</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/Fry/fry.csv>fry.csv</a><br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=ANOVA-1fact-sub/Fry/fry.pdf>fry.pdf</a></td>
+<td><a href=ANOVA-1fact-sub/Fry/fry.jmp>fry.jmp</a></td>
+<td><a href=ANOVA-1fact-sub/Fry/fry.r>fry.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-1fact-sub/Fry/fry.csv>fry.csv</a><br>
+    <a href=ANOVA-1fact-sub/Fry/fry.html>fry.html (R Output)</a></td>
+</tr>
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+
+<tr><td>GSI</td>
+<td>Two factor, CRD, fixed effects, balanced and unbalances; slices</td>
+<td><a href=ANOVA-2fact-simple/GSI/gsi.sas>gsi.sas</a> &nbsp; &nbsp;
+    <a href=ANOVA-2fact-simple/GSI/gsi.csv>gsi.csv</a><br>
+    <a href=ANOVA-2fact-simple/GSI/gsi-SAS.pdf>gsi.pdf</a><br>
+    <a href=ANOVA-2fact-simple/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-2fact-simple/GSI/gsi.jmp>gsi.jmp</a><br>
+    <a href=ANOVA-2fact-simple/GSI/gsi-JMP-balanced.pdf>Output of balanced anaysis</a><br>
+    <a href=ANOVA-2fact-simple/GSI/gsi-JMP-unbalanced.pdf>Output of unbalanced anaysis</a>
+    </td>
+<td><a href=ANOVA-2fact-simple/GSI/gsi.r>gsi.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-2fact-simple/GSI/gsi.csv>gsi.csv</a><br>
+    <a href=ANOVA-2fact-simple/GSI/gsi.html>gsi.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    Shows how to obtain Type III SS from R.
+</td>
+</tr>
+
+<tr><td>PCBs</td>
+<td>Two factor, CRD, fixed effects, balanced and unbalanced</td>
+<td><a href=ANOVA-2fact-simple/PCB/pcb.sas>pcb.sas</a><br>
+    <a href=ANOVA-2fact-simple/PCB/pcb.csv>pcb.csv</a><br>
+    <a href=ANOVA-2fact-simple/PCB/pcb-SAS.pdf>pcb.pdf</a><br>
+    <a href=ANOVA-2fact-simple/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-2fact-simple/PCB/pcb.jmp>pcb.jmp</a></td>
+<td><a href=ANOVA-2fact-simple/PCB/pcb.r>pcb.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-2fact-simple/PCB/pcb.csv>pcb.csv</a><br>
+    <a href=ANOVA-2fact-simple/PCB/pcb.html>pcb.html (R Output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    Shows how to obtain Type III SS from R.
+</td>
+</tr>
+
+<tr><td>PCBs :Power analysis</td>
+<td>Two factor, CRD, fixed effects, balanced, power, sample size</td>
+<td><a href=ANOVA-2fact-simple/PCB/pcb-power.sas>pcb-power.sas</a><br>
+    <a href=ANOVA-2fact-simple/PCB/pcb-power-SAS.pdf>pcb-power.pdf</a></td>
+<td> </td>
+<td> <a href=ANOVA-2fact-simple/PCB/pcb-power.r>pcb-power.r</a></td>
+</tr>
+
+
+
+<tr><td>Stream Residence of Salmon</td>
+<td>Two factor, CRD, fixed effects, unbalanced</td>
+<td><a href=ANOVA-2fact-simple/Residence/residence.sas>residence.sas</a><br>
+    <a href=ANOVA-2fact-simple/Residence/residence.csv>residence.csv</a><br>
+    <a href=ANOVA-2fact-simple/Residence/residence-SAS.pdf>residence.pdf</a><br>
+    <a href=ANOVA-2fact-simple/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-2fact-simple/Residence/residence.jmp>residence.jmp</a></td>
+<td><a href=ANOVA-2fact-simple/Residence/residence.r>residence.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-2fact-simple/Residence/residence.csv>residence.csv</a><br>
+    <a href=ANOVA-2fact-simple/Residence/residence.html>residence.html (R Output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    Shows how to obtain Type III SS from R. 
+     </td>
+</tr>
+
+<tr><td>Pocket Mouse</td>
+<td>Two factor, CRD, fixed effects, unbalanced</td>
+<td><a href=ANOVA-2fact-simple/Mouse/mouse.sas>mouse.sas</a><br>
+    <a href=ANOVA-2fact-simple/Mouse/mouse.csv>mouse.csv</a><br>
+    <a href=ANOVA-2fact-simple/Mouse/mouse-SAS.pdf>mouse.pdf</a><br>
+    <a href=ANOVA-2fact-simple/pdmix800.sas>pdmix800.sas</a></td>
+<td><a href=ANOVA-2fact-simple/Mouse/mouse.jmp>mouse.jmp</a></td>
+<td><a href=ANOVA-2fact-simple/Mouse/mouse.r>mouse.r</a>&nbsp;&nbsp;
+    <a href=ANOVA-2fact-simple/Mouse/mouse.csv>mouse.csv</a><br>
+    <a href=ANOVA-2fact-simple/Mouse/mouse.html>mouse.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    Shows how to obtain Type III SS from R. 
+    </td>
+</tr>
+
+<tr><td>Use Dependent Inactivation (UDI)</td>
+<td>Two factor, CRD, fixed effects, unbalanced</td>
+<td><a href=ANOVA-2fact-simple/UDI/UDI.sas>UDI.sas</a><br>
+    <a href=ANOVA-2fact-simple/UDI/UDI.csv>UDI.csv</a><br>
+    <a href=ANOVA-2fact-simple/UDI/UDI.pdf>UDI.pdf</a></td>
+<td><a href=ANOVA-2fact-simple/UDI/UDI.jmp>UDI.jmp</a></td>
+<td><a href=ANOVA-2fact-simple/UDI/UDI.r>UDI.r</a> &nbsp; &nbsp;
+    <a href=ANOVA-2fact-simple/UDI/UDI.csv>UDI.csv</a><br>
+    <a href=ANOVA-2fact-simple/UDI/UDI.html>UDI.html (R Output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    Shows how to obtain Type III SS from R.
+    </td>
+</tr>
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Fat consumption</td>
+<td>Two factor, CRD, fixed and random effects, balanced</td>
+<td><a href=ANOVA-random/Rancid/rancidfat.sas>rancidfat.sas</a><br>
+    <a href=ANOVA-random/Rancid/rancidfat.lst>rancidfat.lst</a></td>
+<td><a href=ANOVA-random/Rancid/rancidfat.jmp>rancidfat.jmp</a></td></tr>
+
+<tr><td>Mosquito repellants</td>
+<td>Two factor, CRD, fixed and random effects, balanced</td>
+<td><a href=ANOVA-random/Mosquito/mosquito.sas>mosquito.sas</a><br>
+    <a href=ANOVA-random/Mosquito/mosquito.lst>mosquito.lst</a></td>
+<td><a href=ANOVA-random/Mosquito/mosquito.jmp>mosquito.jmp</a></td></tr>
+
+
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Tensile strength of paper</td>
+<td>Two factor, split-plot design, main plot factor in CRD</td>
+<td><a href=SplitPlot/Paper/paper.sas>paper.sas</a>, &nbsp;
+    <a href=SplitPlot/Paper/paper.csv>paper.csv</a>,<br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Paper/paper-SAS.pdf>paper-SAS.pdf</a></td>
+<td><a href=SplitPlot/Paper/paper.jmp>paper.jmp</a></td>
+<td><a href=SplitPlot/Paper/paper.r>paper.r</a>,&nbsp;
+    <a href=SplitPlot/Paper/paper.csv>paper.csv</a><br>
+    <a href=SplitPlot/Paper/paper.html>paper.html - (Output from R)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    p-values/lsmeans from using lmerTest
+    </td>
+</tr>
+
+<tr><td>Seedling Growth</td>
+<td>Two factor, split-plot design with main plots in RCB </td>
+<td><a href=SplitPlot/Forest/forest.sas>forest.sas</a>, &nbsp;
+    <a href=SplitPlot/Forest/forest.csv>forest.csv</a>, <br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Forest/forest-SAS.pdf>forest-SAS.pdf</a></td>
+<td><a href=SplitPlot/Forest/forest.jmp>forest.jmp</a></td>
+<td><a href=SplitPlot/Forest/forest.r>forest.r</a>, &nbsp;
+    <a href=SplitPlot/Forest/forest.csv>forest.csv</a><br>
+    <a href=SplitPlot/Forest/forest.r.html>forest.r.html - output from R</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    </td>
+</tr>
+
+<tr><td>Tenderness of meat</td>
+<td>Two factor, split-plot design with main plots in RCB <br>
+    Illustration of getting joined line plots from SAS Proc Mixed using the pdmix800.sas macro</td>
+<td><a href=SplitPlot/Tenderness/tenderness.sas>tenderness.sas</a>, &nbsp;
+    <a href=SplitPlot/Tenderness/tenderness.csv>tenderness.csv</a>, &nbsp;
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Tenderness/tenderness-SAS.pdf>tenderness-SAS.pdf</a></td>
+<td><a href=SplitPlot/Tenderness/tenderness.jmp>tenderness.jmp</a></td>
+<td><a href=SplitPlot/Tenderness/tenderness.r>tenderness.r</a>, &nbsp;
+    <a href=SplitPlot/Tenderness/tenderness.csv>tenderness.csv</a><br>
+    <a href=SplitPlot/Tenderness/tenderness.r.html>tendeness.r.html - output from R</a> <br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    p-values/ lsmeans from lme, lmer </td>
+    </td>
+ </td>
+</tr>
+
+<tr><td>Solvent contamination levels</td>
+<td>Two factor, split-plot design in time<br>
+    SAS program illustrates how to fit the AR(1) model and the compound symmetric model <br>
+    p-values and lsmeans from lme, lmer </td>
+</td>
+<td><a href=SplitPlot/Fungus/fungus.sas>fungus.sas</a>, &nbsp; &nbsp;
+    <a href=SplitPlot/Fungus/fungus.csv>fungus.csv</a><br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Fungus/fungus-SAS.pdf>fungus-SAS.pdf</a></td>
+<td><a href=SplitPlot/Fungus/fungus.jmp>fungus.jmp</a><br>
+    <a href=SplitPlot/Fungus/fungus-JMP.pdf>fungus-JMP.pdf</a> (JMP Output)</td>
+<td><a href=SplitPlot/Fungus/fungus.r>fungus.r</a>, &nbsp;
+    <a href=SplitPlot/Fungus/fungus.csv>fungus.csv</a><br>
+    <a href=SplitPlot/Fungus/fungus.html>fungus.html - (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    </td>
+</tr>
+
+<tr><td>Home range</td>
+<td>Two factor, split-plot design in time, unbalanced at main plot level
+     CRD at main plot level</td>
+<td><a href=SplitPlot/Homerange/homerange.sas>homerange.sas</a>, &nbsp;
+    <a href=SplitPlot/Homerange/homerange.csv>homerange.csv</a>, &nbsp;
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Homerange/homerange-SAS.pdf>homerange-SAS.pdf</a></td>
+<td><a href=SplitPlot/Homerange/homerange.jmp>homerange.jmp</a></td>
+<td><a href=SplitPlot/Homerange/homerange.r>homerange.r</a>, &nbsp;
+    <a href=SplitPlot/Homerange/homerange.csv>homerange.csv</a><br>
+    <a href=SplitPlot/Homerange/homerange.html>homerange.html - output from R</a> <br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    p-values/ lsmeans from lme, lmer 
+   </td>
+</tr>
+
+<tr><td>Scent and mazes</td>
+<td>Two factor, split-plot design, multiple treatments at split-plot level</td>
+<td><a href=SplitPlot/Scent/scent.sas>scent.sas</a>, &nbsp;
+    <a href=SplitPlot/Scent/scent.csv>scent.csv</a>, &nbsp;
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Scent/scent-SAS.pdf>scent-SAS.pdf</a></td>
+<td><a href=SplitPlot/Scent/scent.jmp>scent.jmp</a>, 
+    <a href=SplitPlot/Scent/scent-stacked.jmp>scent-stacked.jmp</a></td>
+<td><a href=SplitPlot/Scent/scent.r>scent.r</a>, &nbsp;
+    <a href=SplitPlot/Scent/scent.csv>scent.csv</a><br>
+    <a href=SplitPlot/Scent/scent.r.html>scent.r.html - output from R</a> <br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    p-values/ lsmeans from lme, lmer </td>
+</td>
+</tr>
+
+<tr><td>Pheromones and bee colony type</td>
+<td>Two factor, split-plot design, pseudo-replication<br>
+    p-values/ lsmeans from lme, lmer <br>
+    </td>
+<td><a href=SplitPlot/Beeovary/beeovary.sas>beeovary.sas</a>, &nbsp; &nbsp;
+    <a href=SplitPlot/Beeovary/beeovary.csv>beeovary.csv</a><br>
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Beeovary/beeovary-SAS.pdf>beeovary-SAS.pdf</a></td>
+<td><a href=SplitPlot/Beeovary/beeovary.jmp>beeovary.jmp</a>,
+    <a href=SplitPlot/Beeovary/beeovary-averaged.jmp>beeovary-averaged.jmp</a></td>
+<td><a href=SplitPlot/Beeovary/beeovary.r>beeovary.r</a> &nbsp; &nbsp;
+    <a href=SplitPlot/Beeovary/beeovary.csv>beeovary.csv</a><br>
+    <a href=SplitPlot/Beeovary/beeovary.html>beeovary.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+    p-values/ lsmeans from lme, lmer 
+</td>
+</tr>
+
+
+<tr><td>Breath holding at different water temperatures</td>
+<td>Two factor, split-plot design; ANCOVA; random intercept models; <br>
+    power/sample size determination</td>
+<td><a href=SplitPlot/BreathHoldingTime/breath.sas>breath.sas</a>, &nbsp;
+    <a href=SplitPlot/BreathHoldingTime/breath.csv>breath.csv</a>, &nbsp;
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/BreathHoldingTime/breath-SAS.pdf>breath-SAS.pdf</a> </td>
+<td> <a href=SplitPlot/BreathHoldingTime/breath2.jmp>breath2.jmp</a><br>
+     <a href=SplitPlot/BreathHoldingTime/breath2.csv>breath2.csv</a> Same data, except stacked</td>
+<td> <a href=SplitPlot/BreathHoldingTime/breath.r>breath.r</a><br>
+     <a href=SplitPlot/BreathHoldingTime/breath2.csv>breath2.csv</a> Same data, except stacked<br>
+     <a href=SplitPlot/BreathHoldingTime/breath.html>breath.html - output from R</a><br>
+     <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+   </td>
+</tr>
+
+
+<tr><td>Systolic blood pressure prior to presyncope</td>
+<td>Two factor, split-plot design; main-plot in blocks; subsampling in sub-plots</td>  
+<td><a href=SplitPlot/Presyncope/SystolicBloodPressure.sas>SystolicBloodPressure.sas</a>, &nbsp;
+    <a href=SplitPlot/Presyncope/SystolicBloodPressure.csv>SystolicBloodPressure.csv</a>, &nbsp;
+    <a href=pdmix800.sas>pdmix800.sas</a><br>
+    <a href=SplitPlot/Presyncope/SystolicBloodPressure-SAS.pdf>SystolicBloodPressure-SAS.pdf</a></td>
+<td> <a href=SplitPlot/Presyncope/SystolicBloodPressure.jmp>SystolicBloodPressure.jmp</a></td>
+<td> <a href=SplitPlot/Presyncope/SystolicBloodPressure.r>SystolicBloodPressure.r</a><br>
+     <a href=SplitPlot/Presyncope/SystolicBloodPressure.csv>SystolicBloodPressure.csv</a>
+     <a href=SplitPlot/Presyncope/SystolicBloodPressure.r.html>SystolicBloodPressure.r.html - output from R</a> <br>
+     <a href=schwarz.functions.r>Schwarz helper functions</a><br>
+      p-values/ lsmeans from lme, lmer </td>
+</tr>
+-->
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td colspan=5 style="text-align:center;"><b>Design and Analysis of BACI studies</b> </td></tr>
+
+<tr><td>Before-after power functiosn</td>
+    <td><a href=BACI/before-after-power-stroup.r>before-after-power-stroup.r</a> </tr>
+<tr><td>BACI power functiosn</td>
+    <td><a href=BACI/baci-power.r>baci-power.r</a> </td></tr>
+
+<tr><td>Invertebrate density</td>
+<td>Before/After study; single stream; multiple streams; power </td>
+<td><a href=BACI/BeforeAfter/invert.r>invert.r</a> &nbsp; Analysis &nbsp; &nbsp;
+    <a href=BACI/BeforeAfter/invert.csv>invert.csv</a><br>
+    <a href=BACI/BeforeAfter/invert.html>invert.html</a> (R output - Analysis & Power) <br>
+    </td>
+</tr>
+
+<tr><td>Crab density</td>
+<td>BACI; simple BACI; two factor CRD</td>
+<td><a href=BACI/Crabs/baci-crabs.r>baci-crabs.r</a> &nbsp; &nbsp;
+    <a href=BACI/Crabs/baci-crabs.csv>baci-crabs.csv</a><br>
+    <a href=BACI/Crabs/baci-crabs.html>baci-crabs.html</a> (R output - Analysis & Power)<br>
+</tr>
+
+<tr><td>Crab density - revisited</td>
+<td>BACI; simple BACI with multiple control sites; two factor CRD</td>
+<td><a href=BACI/Crabs-mod/baci-crabs-mod.r>baci-crabs-mod.r</a> &nbsp; &nbsp;
+    <a href=BACI/Crabs-mod/baci-crabs-mod.csv>baci-crabs-mod.csv</a><br>
+    <a href=BACI/Crabs-mod/baci-crabs-mod.html>baci-crabs-mod.html</a> (R output - Analysis & Power)<br>
+   </td>
+</tr>
+
+<tr><td>Fish counts before/after impact</td>
+<td>BACI; paired BACI with multiple years before and after; two factor RCB</td>
+<td><a href=BACI/Fish/baci-fish.r>baci-fish.r</a> &nbsp; &nbsp;
+    <a href=BACI/Fish/baci-fish.csv>baci-fish.csv</a><br>
+    <a href=BACI/Fish/baci-fish.html>baci-fish.html</a> (R output - Analysis & Power)<br>
+    </td>
+</tr>
+
+<tr><td>Chironomid density</td>
+<td>BACI; paired BACI; two factor RCB</td>
+<td><a href=BACI/Chironomid/baci-chironomid.r>baci-chironomid.r</a> &nbsp; &nbsp;
+    <a href=BACI/Chironomid/baci-chironomid.csv>baci-chironomid.csv</a><br>
+    <a href=BACI/Chironomid/baci-chironomid.html>baci-chironomid.html</a> (R output - Analysis & Power))<br>
+</tr>
+
+
+<tr><td>Fry counts before/after impact at multiple sites</td>
+<td>BACI; paired BACI with multiple years before and after and multiple sites</td>
+<td><a href=BACI/Fry/baci-fry.r>baci-fry.r</a> &nbsp; &nbsp;
+    <a href=BACI/Fry/baci-fry.csv>baci-fry.csv</a><br>
+    <a href=BACI/Fry/baci-fry.html>baci-fry.html</a> (R output - Analysis & Power)<br>
+    </td>
+</tr>
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<!--
+<tr><td>Moose habitat usage; resource selection</td>
+<td>Chi-square - known proportions</td>
+<td><a href=ChiSquareGOF/MooseHabitat/moosehabitat.sas>moosehabitat.sas</a><br>
+    <a href=ChiSquareGOF/MooseHabitat/moosehabitat.csv>moosehabitat.csv</a><br>
+    <a href=ChiSquareGOF/MooseHabitat/moosehabitat-SAS.pdf>moosehabitat.pdf</a></td>
+<td><a href=ChiSquareGOF/MooseHabitat/moosehabitat.jmp>moosehabitat.jmp</a></td>
+<td><a href=ChiSquareGOF/MooseHabitat/moosehabitat.r>moosehabitat.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareGOF/MooseHabitat/moosehabitat.csv>moosehabitat.csv</a><br>
+    <a href=ChiSquareGOF/MooseHabitat/moosehabitat.html>moosehabitat.html (R Output)</a></td>
+</tr>
+
+<tr><td>Homicides by season</td>
+<td>Chi-square - known proportions</td>
+<td><a href=ChiSquareGOF/Homicide/homicideseason.sas>homicideseason.sas</a><br>
+    <a href=ChiSquareGOF/Homicide/homicideseason.csv>homicideseason.csv</a><br>
+    <a href=ChiSquareGOF/Homicide/homicideseason-SAS.pdf>homicideseason.pdf</a></td>
+<td><a href=ChiSquareGOF/Homicide/homicideseason.jmp>homicideseason.jmp</a></td>
+<td><a href=ChiSquareGOF/Homicide/homicideseason.r>homicideseason.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareGOF/Homicide/homicideseason.csv>homicideseason.csv</a><br>
+    <a href=ChiSquareGOF/Homicide/homicideseason.html>homicideseason.html (R Output)</a><td>
+</tr>
+
+
+
+
+<tr><td>Elk habitat resource selection</td>
+<td>Chi-square - single factor - CRD</td>
+<td><a href=ChiSquareCRD/ElkHabitat/elkhabitat.sas>elkhabitat.sas</a><br>
+    <a href=ChiSquareCRD/ElkHabitat/elkhabitat.csv>elkhabitat.csv</a><br>
+    <a href=ChiSquareCRD/ElkHabitat/elkhabitat-SAS.pdf>elkhabitat.pdf</a></td>
+<td><a href=ChiSquareCRD/ElkHabitat/elkhabitat.jmp>elkhabitat.jmp</a></td>
+<td><a href=ChiSquareCRD/ElkHabitat/elkhabitat.r>elkhabitat.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/ElkHabitat/elkhabitat.csv>elkhabitat.csv</a><br>
+    <a href=ChiSquareCRD/ElkHabitat/elkhabitat.html>elkhabitat.html (R Output)</a></td>
+</tr>
+
+<tr><td>Is yawning contagious?/td>
+<td>Chi-square - single factor -  CRD</td>
+<td><a href=ChiSquareCRD/Yawn/yawn.sas>yawn.sas</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Yawn/yawn.csv>yawn.csv</a><br>
+    <a href=ChiSquareCRD/Yawn/yawn-SAS.pdf>yawn-SAS.pdf</a></td>
+<td><a href=ChiSquareCRD/Yawn/yawn.jmp>yawn.jmp</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Yawn/yawn-JMP.pdf>yawn-JMP.pdf</a></td>
+<td><a href=ChiSquareCRD/Yawn/yawn.r>yawn.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Yawn/yawn.csv>yawn.csv</a><br>
+    <a href=ChiSquareCRD/Yawn/yawn.html>yawn.html (R Output)</a></td>
+</tr>
+
+<tr><td>Oyster leases: ownership vs outlook</td>
+<td>Chi-square - single factor -  CRD<br>
+Fisher Exact test<br>
+Power to detect diff in two proportions</td>
+<td><a href=ChiSquareCRD/OysterLease/oyster-lease.sas>oyster-lease.sas</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/OysterLease/oyster-lease.csv>oyster-lease.csv</a><br>
+    <a href=ChiSquareCRD/OysterLease/oyster-lease-SAS.pdf>oyster-lease.pdf</a></td>
+<td><a href=ChiSquareCRD/OysterLease/oyster-lease.jmp>oyster-lease.jmp</a></td>
+<td><a href=ChiSquareCRD/OysterLease/oyster-lease.r>oyster-lease.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/OysterLease/oyster-lease.csv>oyster-lease.csv</a><br>
+    <a href=ChiSquareCRD/OysterLease/oyster-lease.html>oyster-lease.html (R Output)</a></td>
+</tr>
+
+<tr><td>Car Poll</td>
+<td>Chi-square - single factor - CRD</td>
+<td><a href=ChiSquareCRD/CarPoll/carpoll.sas>carpoll.sas</a><br>
+    <a href=ChiSquareCRD/CarPoll/carpoll.csv>carpoll.csv</a><br>
+    <a href=ChiSquareCRD/CarPoll/carpoll-SAS.pdf>carpoll.pdf</a></td>
+<td><a href=ChiSquareCRD/CarPoll/CarPoll.jmp>CarPoll.jmp</a><br>
+    This is the dataset that ships with JMP</td>
+<td><a href=ChiSquareCRD/CarPoll/carpoll.r>carpoll.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/CarPoll/carpoll.csv>carpoll.csv</a><br>
+    <a href=ChiSquareCRD/CarPoll/carpoll.html>carpoll.html (R Output)</a></td>
+</tr>
+
+
+<tr><td>Marijuana/alcohol usage: parent and student usage</td>
+<td>Chi-square -  single factor - CRD</td>
+<td><a href=ChiSquareCRD/Marijuana/marijuana.sas>marijuana.sas</a><br>
+    <a href=ChiSquareCRD/Marijuana/marijuana.csv>marijuana.csv</a><br>
+    <a href=ChiSquareCRD/Marijuana/marijuana-SAS.pdf>marijuana.pdf</a></td>
+<td><a href=ChiSquareCRD/Marijuana/marijuana.jmp>marijuana.jmp</a></td>
+<td><a href=ChiSquareCRD/Marijuana/marijuana.r>marijuana.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Marijuana/marijuana.csv>marijuana.csv</a><br>
+    <a href=ChiSquareCRD/Marijuana/marijuana.html>marijuana.html (R Output)</a></td>
+</tr>
+
+<tr><td>Fatality rates by type of accident</td>
+<td>Chi-square - single factor - CRD</td>
+<td><a href=ChiSquareCRD/Accident/accident.sas>accident.sas</a><br>
+    <a href=ChiSquareCRD/Accident/accident.csv>accident.csv</a><br>
+    <a href=ChiSquareCRD/Accident/accident-SAS.pdf>accident.pdf</a></td>
+<td><a href=ChiSquareCRD/Accident/accident.jmp>accident.jmp</a></td>
+<td><a href=ChiSquareCRD/Accident/accident.r>accident.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Accident/accident.csv>accident.csv</a><br>
+    <a href=ChiSquareCRD/Accident/accident.html>accident.html (R Output)</a></td>
+</tr>
+
+<tr><td>Flocking behaviour of birds</td>
+<td>Chi-square - single factor - CRD</td>
+<td><a href=ChiSquareCRD/Flocks/flocks.sas>flocks.sas</a><br>
+    <a href=ChiSquareCRD/Flocks/flocks.csv>flocks.csv</a><br>
+    <a href=ChiSquareCRD/Flocks/flocks-SAS.pdf>flocks.pdf</a></td>
+<td><a href=ChiSquareCRD/Flocks/flocks.jmp>flocks.jmp</a></td>
+<td><a href=ChiSquareCRD/Flocks/flocks.r>flocks.r</a> &nbsp; &nbsp; 
+    <a href=ChiSquareCRD/Flocks/flocks.csv>flocks.csv</a><br>
+    <a href=ChiSquareCRD/Flocks/flocks.html>flocks.html (R Output)</a></td>
+</tr>
+
+
+<tr><td>Predation of fox-squirrels</td>
+<td>Chi-square - single factor - CRD<br>
+    Fisher's Exact Test</td>
+<td><a href=ChiSquareCRD/FisherExact/fox-squirrel.sas>fox-squirrel.sas</a><br>
+    <a href=ChiSquareCRD/FisherExact/fox-squirrel-SAS.pdf>fox-squirrel.pdf</a></td>
+<td><a href=ChiSquareCRD/FisherExact/fox-squirrel.jmp>fox-squirrel.jmp</a></td>
+<td><a href=ChiSquareCRD/FisherExact/fox-squirrel.r>fox-squirrel.r</a> &nbsp; &nbsp; CSV file not needed.<br>
+    <a href=ChiSquareCRD/FisherExact/fox-squirrel.html>fox-squirrel.html (R Output)</a></td>
+</tr>
+
+<tr><td>Aspirin and Heart Attacks</td>
+<td>Chi-square - single factor - CRD<br>
+    Fisher's Exact Test</td>
+<td><a href=ChiSquareCRD/FisherExact/aspirin.sas>aspirin.sas</a><br>
+    <a href=ChiSquareCRD/FisherExact/aspirin-SAS.pdf>aspirin.pdf</a> </td>
+<td><a href=ChiSquareCRD/FisherExact/aspirin.jmp>aspirin.jmp</a></td>
+<td><a href=ChiSquareCRD/FisherExact/aspirin.r>aspirin.r</a> &nbsp; &nbsp; CSV file not needed.<br>
+    <a href=ChiSquareCRD/FisherExact/aspirin.html>aspirin.html (R Output)</a></td>
+</tr>
+
+<tr><td>Northern Quolls and Cane Toads</td>
+<td>Chi-square - single factor - CRD<br>
+    Fisher's Exact Test<br> Combining multiple Fisher Exact tests</td>
+<td><a href=ChiSquareCRD/Quolls/quolls.sas>quolls.sas</a><br>
+    <a href=ChiSquareCRD/Quolls/quolls.csv>quolls.csv</a><br>
+    <a href=ChiSquareCRD/Quolls/quolls-SAS.pdf>quolls.pdf</a> </td>
+<td><a href=ChiSquareCRD/Quolls/quolls.jmp>quolls.jmp</a> &nbsp; &nbsp;<br>
+     Fisher's Exact test Not doable in JMP because table is larger than 2x2 </td>
+<td><a href=ChiSquareCRD/Quolls/quolls.r>quolls.r</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Quolls/quolls.csv>quolls.csv</a><br>
+    <a href=ChiSquareCRD/Quolls/quolls.html>quolls.html (R Output)</a><br>
+    Combining multiple Fisher Exact tests</td> </tr>
+
+<tr><td>Bear den usage vs forest types</td>
+<td>Chi-square - single factor - CRD<br>
+    Fisher's Exact Test<br>
+    Power/sample size of chisquare test
+    </td>
+<td> </td>
+<td> </td>
+<td><a href=ChiSquareCRD/Power/BearDens/bear-dens.R>bear-dens.R</a> &nbsp; &nbsp;
+    <a href=ChiSquareCRD/Power/BearDens/bear-dens.html>bear-dens.html (R Output)</a>
+    </td>
+</tr>
+
+
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+
+<tr><td>Anscombe example</td>
+<td>Regression - perils of not looking at data</td>
+<td><a href=Reg/Anscombe/anscombe.sas>anscombe.sas</a> &nbsp; &nbsp;
+    <a href=Reg/Anscombe/anscombe.csv>anscombe.csv</a><br>
+    <a href=Reg/Anscombe/anscombe-SAS.pdf>anscombe-SAS.pdf</a></td>
+<td><a href=Reg/Anscombe/anscombe.jmp>anscombe.jmp</a><br>
+    <a href=Reg/Anscombe/anscombe-JMP-output.pdf>anscombe.jmp output</a>
+    </td>
+<td>
+    <a href=Reg/Anscombe/anscombe.r>anscombe.r</a> &nbsp; &nbsp;
+    <a href=Reg/Anscombe/anscombe.csv>anscombe.csv</a><br>
+    <a href=Reg/Anscombe/anscombe.html>anscombe.html - output from R</a>
+    </td>
+</tr>
+
+<tr><td>Yield-fertilizer relationship of tomatoes</td>
+<td>Regression</td>
+<td><a href=Reg/Fertilizer/fertilizer.sas>fertilizer.sas</a><br>
+    <a href=Reg/Fertilizer/fertilizer.csv>fertilizer.csv</a><br>
+    <a href=Reg/Fertilizer/fertilizer.pdf>fertilizer.pdf</a></td>
+<td><a href=Reg/Fertilizer/fertilizer.jmp>fertilizer.jmp</a></td>
+<td><a href=Reg/Fertilizer/fertilizer.csv>fertilizer.csv</a><br>
+    <a href=Reg/Fertilizer/fertilizer.r>fertilizer.r</a><br>
+    <a href=Reg/Fertilizer/fertilizer.html>fertilizer.html - R output</a>
+    </td>
+</tr>
+
+<tr><td>Blood-food relationship of mercury</td>
+<td>Regression</td>
+<td><a href=Reg/Mercury/mercury.sas>mercury.sas</a><br>
+    <a href=Reg/Mercury/mercury.csv>mercury.csv</a><br>
+    <a href=Reg/Mercury/mercury.pdf>mercury.pdf</a> </td>
+<td><a href=Reg/Mercury/mercury.jmp>mercury.jmp</a></td>
+<td><a href=Reg/Mercury/mercury.csv>mercury.csv</a><br>
+    <a href=Reg/Mercury/mercury.r>mercury.r</a><br>
+    <a href=Reg/Mercury/mercury.r.html>mercury.r.html - R output</a>
+     </td>
+</tr>
+
+<tr><td><a href=Reg/Grass/GrassIsGreenerLonger.pdf>The Grass is Greener (for longer)</a></td>
+<td>Regression vs time of growing season, Kendall's tau; Cox-Stuart test for trend; Theil-Sen-Kendall slope estimator
+</td>
+<td><a href=Reg/Grass/grass.sas>grass.sas</a> &nbsp; &nbsp;
+    <a href=Reg/Grass/grass.csv>grass.csv</a><br>
+    <a href=Reg/Grass/grass-SAS.pdf>grass-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg/Grass/grass.jmp>grass.jmp</a><br>
+    <a href=Reg/Grass/grass-JMP-output1.pdf>JMP output 1</a> &nbsp; &nbsp;
+    <a href=Reg/Grass/grass-JMP-output2.pdf>JMP output 2</a>
+    </td>
+<td><a href=Reg/Grass/grass.r>grass.r</a> &nbsp;
+    <a href=Reg/Grass/grass.csv>grass.csv</a><br>
+    <a href=Reg/Grass/grass.html>grass.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Dissolved solids in Cuyahoga River - I <br>
+This is the MK4a.txt dataset from the Kendall program for USGS  
+<a href=http://pubs.usgs.gov/sir/2005/5275/pdf/sir2005-5275.pdf>written by Helsel</a>
+<a href=Reg/TSS-Cuyahoga/MK4a_out.txt>with this output</a>.
+
+ </td>
+<td>Regression vs time of dissolved solids, Kendall's tau; Cox-Stuart test for trend; 
+Theil-Sen-Kendall slope estimator
+</td>
+<td>
+</td>
+<td>
+    </td>
+<td><a href=Reg/TSS-Cuyahoga/tss-cuyahoga.r>tss-cuyahoga.r</a> &nbsp;
+    <a href=Reg/TSS-Cuyahoga/tss-cuyahoga.txt>tss-cuyahoga.txt (raw data)</a><br>
+    <a href=Reg/TSS-Cuyahoga/tss-cuyahoga.html>tss-cuyahoga.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Tuscaloosa Average Temperatures</td>
+<td>Regression vs time; regime shifts; level shifts; ANCOVA </td>
+<td><a href=ANCOVA/Tuscaloosa/tuscaloosa.sas>tuscaloosa.sas</a> &nbsp; &nbsp;
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa.csv>tuscaloosa.csv</a><br>
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa-SAS.pdf>tuscaloosa-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=ANCOVA/Tuscaloosa/tuscaloosa-avg-temp.jmp>tuscaloosa-avg-temp.jmp</a><br>
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa-avg-temp-JMP-nonp.pdf>tuscaloosa-avg-temp-JMP-nonp.pdf</a> (Non-parallel slope model)<br>
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa-avg-temp-JMP-p.pdf>tuscaloosa-avg-temp-JMP-p.pdf</a> (Parallel slope model)<br>
+     </td>
+<td> <a href=ANCOVA/Tuscaloosa/tuscaloosa.r>tuscaloosa.r</a> &nbsp;
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa.csv>tuscaloosa.csv</a><br>
+    <a href=ANCOVA/Tuscaloosa/tuscaloosa.html>tuscaloosa.html - R output</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Monitoring Dioxin trends over time</td>
+<td>Regression; log-transform </td>
+<td><a href=Reg/DioxinTEQ/dioxinTEQ.sas>dioxinTEQ.sas</a><br>
+    <a href=Reg/DioxinTEQ/dioxinTEQ.csv>dioxinTEQ.csv</a><br>
+    <a href=Reg/DioxinTEQ/dioxinTEQ-SAS.pdf>dioxinTEQ-SAS.pdf</a></td>
+<td><a href=Reg/DioxinTEQ/dioxinTEQ.jmp>dioxinTEQ.jmp</a></td>
+<td><a href=Reg/DioxinTEQ/dioxinTEQ.r>dioxinTEQ.r</a>
+    <a href=Reg/DioxinTEQ/dioxinTEQ.csv>dioxinTEQ.csv</a><br>
+    <a href=Reg/DioxinTEQ/dioxinTEQ.html>dioxinTEQ.html - R output</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Yukon River Breakup</td>
+<td>Regression; test for autocorrelation; <br>Non-parametric test for trend;<br>Kendall test for trend </td>
+<td><a href=Reg/YukonBreakup/yukon.sas>yukon.sas</a><br>
+    <a href=Reg/YukonBreakup/yukon.csv>yukon.csv</a><br>
+    <a href=Reg/YukonBreakup/yukon-SAS.pdf>yukon-SAS.pdf</a></td>
+<td><a href=Reg/YukonBreakup/yukon.jmp>yukon.jmp</a><br> 
+    <a href=Reg/YukonBreakup/yukon-JMP-output1.pdf>JMP output 1</a>
+    <a href=Reg/YukonBreakup/yukon-JMP-output2.pdf>JMP output 2</a></td>
+<td><a href=Reg/YukonBreakup/yukon.r>yukon.r</a>
+    <a href=Reg/YukonBreakup/yukon.csv>yukon.csv</a><br>
+    <a href=Reg/YukonBreakup/yukon.html>yukon.r.html - R output</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr><td>Monitoring mink pelts captured over time</td>
+<td>Regression; log-transform; autocorrelation; autoregressive regression; AR(1) regression </td>
+<td>
+    <a href=Reg/Mink/mink.sas>mink.sas</a> &nbsp; &nbsp;
+    <a href=Reg/Mink/mink.csv>mink.csv</a><br>
+    <a href=Reg/Mink/mink-SAS.pdf>mink-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg/Mink/mink.jmp>mink.jmp</a></td>
+<td><a href=Reg/Mink/mink.r>mink.r</a> &nbsp;
+    <a href=Reg/Mink/mink.csv>mink.csv</a><br>
+    <a href=Reg/Mink/mink.html>mink.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+<tr><td>Median run timing of salmon runs</td>
+<td>Regression; autocorrelation; autoregressive regression; AR(1) regression </td>
+<td>
+    <a href=Reg/SalmonRunTiming/runtiming.sas>runtiming.sas</a> &nbsp; &nbsp;
+    <a href=Reg/SalmonRunTiming/runtiming.csv>runtiming.csv</a><br>
+    <a href=Reg/SalmonRunTiming/runtiming-SAS.pdf>runtiming-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg/SalmonRunTiming/runtiming.jmp>runtiming.jmp</a><br>
+    <a href=Reg/SalmonRunTiming/runtiming-JMP-naivefit.pdf>runtiming-JMP-naivefit.pdf</a> (JMP output - naive fit)<br>
+    <a href=Reg/SalmonRunTiming/runtiming-JMP-fitmodel.pdf>runtiming-JMP-fitmodel.pdf</a> (JMP output - fit model)<br>
+    <a href=Reg/SalmonRunTiming/runtiming-JMP-tsfit.pdf   >runtiming-JMP-tsfit.pdf   </a> (JMP output - arima fit)
+</td>
+<td><a href=Reg/SalmonRunTiming/runtiming.r>runtiming.r</a> &nbsp;
+    <a href=Reg/SalmonRunTiming/runtiming.csv>runtiming.csv</a><br>
+    <a href=Reg/SalmonRunTiming/runtiming.html>runtiming.html (R output)</a>
+</tr>
+
+
+
+
+
+
+
+<tr><td>Phosphorus levels on Klamath River</td>
+<td> Non-parametric trend detection; Seasonal Kendall tau;
+Seasonal adjustment; fitting using sines and cosines  </td>
+<td><a href=Reg/Klamath/klamath.sas>klamath.sas</a> &nbsp; &nbsp;
+    <a href=Reg/Klamath/klamath.csv>klamath.csv</a><br>
+    <a href=Reg/Klamath/klamath-SAS.pdf>klamath-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg/Klamath/klamath.jmp>klamath.jmp</a><br>
+    <a href=Reg/Klamath/klamath2.jmp>klamath2.jmp</a><br>
+    <a href=Reg/Klamath/klamath3.jmp>klamath3.jmp</a>
+</td>
+<td><a href=Reg/Klamath/klamath.r>klamath.r</a> &nbsp;
+    <a href=Reg/Klamath/klamath.csv>klamath.csv</a><br>
+    <a href=Reg/Klamath/klamath.html>klamath.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+<tr><td>Dissolved solids in Cuyahoga River - II<br>
+This is the SK1a.txt dataset from the Kendall program for USGS            
+<a href=http://pubs.usgs.gov/sir/2005/5275/pdf/sir2005-5275.pdf>written by Helsel</a>
+<a href=Reg/TSS-Cuyahoga-Seasonal/SK1a_out.txt>with this output</a>.
+
+ </td><td>Regression vs time of dissolved solids with seasonal effects; <br>
+ANCOVA<br>
+Kendall's Seasonal tau;  <br>
+Theil-Sen-Kendall common slope estimator
+</td>
+<td>
+</td>
+<td>
+    </td>
+<td><a href=Reg/TSS-Cuyahoga-Seasonal/tss-cuyahoga-seasonal.r>tss-cuyahoga-seasonal.r</a> &nbsp;
+    <a href=Reg/TSS-Cuyahoga-Seasonal/tss-cuyahoga-seasonal.txt>tss-cuyahoga-seasonal.txt (raw data)</a><br>
+    <a href=Reg/TSS-Cuyahoga-Seasonal/tss-cuyahoga-seasonal.html>tss-cuyahoga-seasonal.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+<tr><td>Nitrate in ground water, Adams County, Washington<br>
+This is the RK3a.txt dataset from the Kendall program for USGS 
+<a href=http://pubs.usgs.gov/sir/2005/5275/pdf/sir2005-5275.pdf>written by Helsel</a>
+<a href=Reg/Nitrate-Adams/RK3a_out.txt>with this output</a>.
+
+ </td><td>Regression vs time of nitrate with regional effects; <br>
+ANCOVA<br>
+Kendall's Regional tau;  <br>
+Theil-Sen-Kendall common slope estimator
+</td>
+<td>
+</td>
+<td>
+    </td>
+<td><a href=Reg/Nitrate-Adams/nitrate-adams-regional.r>nitrate-adams-regional.r</a> &nbsp;
+    <a href=Reg/Nitrate-Adams/nitrate-adams-regional.txt>nitrate-adams-regional.txt (raw data)</a><br>
+    <a href=Reg/Nitrate-Adams/nitrate-adams-regional.html>nitrate-adams-regional.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+<tr><td>Ammonium  (uEq/L) in snowpack in Colorado and New Mexico.
+This is the RK3b.txt dataset from the Kendall program for USGS 
+<a href=http://pubs.usgs.gov/sir/2005/5275/pdf/sir2005-5275.pdf>written by Helsel</a>
+<a href=Reg/Ammonium/RK3b_out.txt>with this output</a>.
+
+ </td><td>Regression vs time of nitrate with regional effects; <br>
+ANCOVA<br>
+Kendall's Regional tau;  <br>
+Theil-Sen-Kendall common slope estimator
+</td>
+<td>
+</td>
+<td>
+    </td>
+<td><a href=Reg/Ammonium/ammonium-regional.r>ammonium-regional.r</a> &nbsp;
+    <a href=Reg/Ammonium/ammonium-regional.txt>ammonium-regional.txt (raw data)</a><br>
+    <a href=Reg/Ammonium/ammonium-regional.html>ammonium-regional.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+
+<tr><td>TEOM vs Reference Air quality readings</td>
+<td> Seasonal adjustment; fitting using sines and cosines  </td>
+<td><a href=Reg/TEOM/teom.sas>teom.sas</a> &nbsp; &nbsp;
+    <a href=Reg/TEOM/teom.csv>teom.csv</a><br>
+    <a href=Reg/TEOM/teom-SAS.pdf>teom-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg/TEOM/teom.jmp>teom.jmp</a></td>
+<td> <a href=Reg/TEOM/teom.r>teom.r</a> &nbsp;
+    <a href=Reg/TEOM/teom.csv>teom.csv</a><br>
+    <a href=Reg/TEOM/teom.html>teom.html - R output</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+    </td>
+</tr>
+
+
+
+<tr><td>Weight-length relationship of fish</td>
+<td>Regression; log-transform; non-linear regression</td>
+<td><a href=Reg/WtLen/wtlen.sas>wtlen.sas</a><br>
+    <a href=Reg/WtLen/wtlen.csv>wtlen.csv</a><br>
+    <a href=Reg/WtLen/wtlen-SAS.pdf>wtlen-SAS.pdf</a></td>
+<td><a href=Reg/WtLen/wtlen.jmp>wtlen.jmp</a></td>
+<td><a href=Reg/WtLen/wtlen.csv>wtlen.csv</a><br>
+    <a href=Reg/WtLen/wtlen.r>wtlen.r</a><br>
+    <a href=Reg/WtLen/wtlen.r.html>wtlen.r.html - R output</a><br>
+    </td>
+</tr>
+
+
+
+<tr><td>Nanana Ice Breakup</td>
+<td>Regression; piecewise, known changepoint, broken stick, hockeystick, 
+    search for unknown changepoint</td>
+<td>
+    <a href=Reg/Nenana/nenana.sas>nenana.sas</a><br>
+    <a href=Reg/Nenana/nenana-SAS.pdf>nenana-SAS.pdf</a><br>
+    </td>
+<td><a href=Reg/Nenana/nenana.jmp>nenana.jmp</a>
+     </td>
+<td><a href=Reg/Nenana/nenana.r>nenana.r</a> &nbsp; &nbsp;
+    <a href=Reg/Nenana/nenana.csv>nenana.csv</a><br>
+    <a href=Reg/Nenana/nenana.html>nenana.html - R output</a>
+</tr>
+
+<tr><td>Electric Fire Ants</td>
+<td>Regression; piecewise, known changepoint, broken stick, hockeystick, 
+    search for unknown changepoint; when does treatment match control</td>
+<td>
+    <a href=Reg/Ant/ant.sas>ant.sas</a><br>
+    <a href=Reg/Ant/ant-SAS.pdf>ant-SAS.pdf</a><br>
+    </td>
+<td><a href=Reg/Ant/ant.jmp>ant.jmp</a>
+     </td>
+<td> <a href=Reg/Ant/ant.r>ant.r</a> &nbsp; &nbsp;
+    <a href=Reg/Ant/ant.csv>ant.csv</a><br>
+    <a href=Reg/Ant/ant.html>ant.html (R output)</a><br>
+    <a href=Reg/Ant/changepoint0.r>changepoint0.r - forces slope to be 0 after changepoint</a>
+</tr>
+
+<tr><td>Chemical concentration in water</td>
+<td>Regression; piecewise, known changepoint, broken stick, hockeystick, 
+    Power to detech change in slope after break point</td>
+<td>
+    <a href=Power/RegPower-change-slope/reg-power-change-slope.sas>reg-power-change-slope.sas</a><br>
+    <a href=Power/RegPower-change-slope/reg-power-change-slope-SAS.pdf>reg-power-change-slope-SAS.pdf</a><br>
+    <b>Not yet implemented</b>
+    </td>
+<td><b>Not easily done in JMP</b>
+    </td>
+<td><a href=Power/RegPower-change-slope/reg-power-change-slope.r>reg-power-change-slope.r</a><br>
+    <a href=Power/RegPower-change-slope/reg-power-change-slope.html>reg-power-change-slope.html - R output</a><br>
+    <a href=Power/RegPower-change-slope/reg.power.ChangeSlopeAfterBreakpoint.stroup.r>Function to compute power</a>
+    </td>
+</tr>
+
+
+
+
+
+
+<tr><td>Invertebrate sampling; Comparing slopes with pseudo-replication </td>
+<td>Regression; ANCOVA,  pseudo-replication </td>
+<td>
+   <a href=Reg-pseudo/Weins-Inv/invertebrates.sas>invertebrates.sas</a> &nbsp; &nbsp;
+   <a href=Reg-pseudo/Weins-Inv/invertebrates.csv>invertebrates.csv</a><br>
+   <a href=Reg-pseudo/Weins-Inv/invertebrates-SAS.pdf>invertebrates-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg-pseudo/Weins-Inv/invertebrates.jmp>invertebrates.jmp</a></td>
+<td>
+   <a href=Reg-pseudo/Weins-Inv/invertebrates.r>invertebrates.r</a> &nbsp; &nbsp;
+   <a href=Reg-pseudo/Weins-Inv/invertebrates.csv>invertebrates.csv</a><br>
+   <a href=Reg-pseudo/Weins-Inv/invertebrates.html>invertebrates.html</a> (R output)
+
+</tr>
+
+<tr><td>Se in water and fish</td>
+    <td>Regression; pseudo-replication </td>
+<td>
+    <a href=Reg-pseudo/Se-Lake/Se-lake.sas>Se-lake.sas</a> &nbsp; &nbsp;
+    <a href=Reg-pseudo/Se-Lake/Se-lake.csv>Se-lake.csv</a><br>
+    <a href=Reg-pseudo/Se-Lake/Se-lake-SAS.pdf>Se-lake.pdf</a> (SAS output)
+</td>
+<td><a href=Reg-pseudo/Se-Lake/Se-lake.jmp>Se-lake.jmp</a></td>
+<td>
+    <a href=Reg-pseudo/Se-Lake/Se-lake.r>Se-lake.r</a> &nbsp; &nbsp;
+    <a href=Reg-pseudo/Se-Lake/Se-lake.csv>Se-lake.csv</a><br>
+    <a href=Reg-pseudo/Se-Lake/Se-lake.html>Se-lake.html</a> (R output)
+</tr>
+
+<tr><td>Trends in biomass over time</td>
+<td>Regression; pseudo-replication; Process and Sampling Error separation<br>
+Power analysis (R only) </td>
+<td><a href=Reg-pseudo/Stream-Biomass/stream-biomass.sas>stream-biomass.sas</a> &nbsp; &nbsp;
+    <a href=Reg-pseudo/Stream-Biomass/stream-biomass.csv>stream-biomass.csv (data)</a><br>
+    <a href=Reg-pseudo/Stream-Biomass/stream-biomass-SAS.pdf>stream-biomass-SAS.pdf</a> (SAS output)
+</td>
+<td><a href=Reg-pseudo/Stream-Biomass/stream-biomass.jmp>stream-biomass.jmp</a></td>
+<td><a href=Reg-pseudo/Stream-Biomass/stream-biomass.r>stream-biomass.r</a> &nbsp; &nbsp;
+    <a href=Reg-pseudo/Stream-Biomass/stream-biomass.csv>stream-biomass.csv</a><br>
+    <a href=Reg-pseudo/Stream-Biomass/stream-biomass.html>stream-biomass.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+</td>
+</tr>
+
+
+<tr><td>DDT over time</td>
+<td>Process and Sampling Error separation </td>
+<td><a href=Monitor/DDT/ddt.sas>ddt.sas</a> &nbsp; &nbsp;
+    <a href=Monitor/DDT/ddt.csv>ddt.csv (data)</a><br>
+    <a href=Monitor/DDT/ddt-SAS.pdf>ddt-SAS.pdf</a> (SAS output)
+</td>
+<td>I have not done this in JMP</a></td>
+<td><a href=Monitor/DDT/ddt.r>ddt.r (R code)</a><br>
+    <a href=Monitor/DDT/ddt.html>ddt.html (R output)</a>
+</td>
+</tr>
+
+<tr><td>Sample data set</td>
+<td>Regression; pseudo-replication; Process and Sampling error separation; power analysis regression; Program MONITOR; Lenth's power JAVA applet </td>
+<td><a href=Monitor/Example1/monitor-example1.sas>monitor-example1.sas</a><br>
+    <a href=Monitor/Example1/monitor-example1-SAS.pdf>monitor-example1-SAS.pdf</a> (SAS output)
+</td>
+<td>Not possible in JMP </td>
+<td><a href=Monitor/Example1/monitor-example1.r>monitor-example1.r (R code)</a>
+    <a href=Monitor/Example1/monitor-example1.html>monitor-example1.html (R output)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-stroup.r>slr-power-stroup.r - Power computations function (analytical)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-sim.r>slr-power-sim.r - Power computation function (simulation)</a><br>
+</td>
+</tr>
+
+
+
+
+<tr><td>Trends in deer density</td>
+<td>Regression; pseudo-replication; Process and Sampling error separation; power analysis; Program MONITOR </td>
+<td><a href=Monitor/Deer/deer-density.sas>deer-density.sas</a><br>
+    <a href=Monitor/Deer/deer-density-SAS.pdf>deer-density-SAS.pdf</a> (SAS output)
+</td>
+<td>Not possible in JMP </td>
+<td><a href=Monitor/Deer/deer-density.r>deer-density.r (R code)</a>
+    <a href=Monitor/Deer/deer-density.html>deer-density.html (R output)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-stroup.r>slr-power-stroup.r - Power computations function (analytical)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-sim.r>slr-power-sim.r - Power computation function (simulation)</a><br>
+</td>
+</tr>
+
+
+<tr><td>Choice of fertilizer levels</td>
+<td>Simple linear regression power analysis</td>
+<td><a href=Power/RegPower/Fertilizer/fertilizer-power.sas>fertilizer-power.sas</a><br>
+    <a href=Power/RegPower/Fertilizer/fertilizer-power-SAS.pdf>fertilizer-power-SAS.pdf</a><br>
+    </td>
+<td>Not available in JMP
+    </td>
+<td><a href=Power/RegPower/Fertilizer/fertilizer-power.r>fertilizer-power.r (R code)</a><br>
+    <a href=Power/RegPower/Fertilizer/fertilizer-power.html>fertilizer-power.html (R output)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-stroup.r>slr-power-stroup.r - Power computations function (analytical)</a><br>
+    <a href=Power/RegPower/SLR-power/slr-power-sim.r>slr-power-sim.r - Power computation function (simulation)</a><br>
+    </td>
+</tr>
+
+
+
+<tr><td>Blood pressure vs age, weight, stress</td>
+<td>Multiple regression </td>
+<td>
+   <a href=MultReg/BloodPress/bloodpress.sas>bloodpress.sas</a> &nbsp; &nbsp;
+   <a href=MultReg/BloodPress/bloodpress.csv>bloodpress.csv</a><br>
+   <a href=MultReg/BloodPress/bloodpress-SAS.pdf>bloodpress-SAS.pdf (SAS Output)</a><br>
+</td>
+<td><a href=MultReg/BloodPress/bloodpress.jmp>bloodpress.jmp</a><br>
+    <a href=MultReg/BloodPress/bloodpress-JMP-scatter.pdf>bloodpress-JMP-scatter.pdf (Scatter plot matrix)</a>
+    <a href=MultReg/BloodPress/bloodpress-JMP-lmfit.pdf>bloodpress-JMP-lmfit.pdf (Regression fit)</a>
+    </td>
+<td><a href=MultReg/BloodPress/bloodpress.r>bloodpress.r</a> &nbsp; &nbsp;
+    <a href=MultReg/BloodPress/bloodpress.csv>bloodpress.csv</a><br>
+    <a href=MultReg/BloodPress/bloodpress.html>bloodpress.html (R Output)</a><br>
+</tr>
+
+
+<tr><td>Fitness as measured by <br>time to run a mile</td>
+<td>Multiple regression </td>
+<td>
+   <a href=MultReg/Fitness/fitness.sas>bloodpress.sas</a> &nbsp; &nbsp;
+   <a href=MultReg/Fitness/fitness.xlsx>fitness.xlsx</a><br>
+   <a href=MultReg/Fitness/fitness-SAS.pdf>fitness-SAS.pdf (SAS Output)</a>
+   </td>
+<td><a href=MultReg/Fitness/fitness.jmp>fitness.jmp</a>
+    </td>
+<td><a href=MultReg/Fitness/fitness.r>fitness.r</a> &nbsp; &nbsp;
+    <a href=MultReg/Fitness/fitness.xlsx>fitness.xlsx</a><br>
+    <a href=MultReg/Fitness/fitness.html>fitness.html (R Output)</a>
+    </td>
+</tr>
+
+
+
+<tr><td>Tomato yield vs waters</td>
+<td>Polynomial regression </td>
+<td>
+   <a href=MultReg/TomatoWater/tomatowater.sas>tomatowater.sas</a><br>
+   <a href=MultReg/TomatoWater/tomatowater.csv>tomatowater.csv</a><br>
+   <a href=MultReg/TomatoWater/tomatowater.lst>tomatowater.lst</a>
+   </td>
+<td><a href=MultReg/TomatoWater/tomatowater.jmp>tomatowater.jmp</a>
+    </td>
+<td><a href=MultReg/TomatoWater/tomatowater.r>tomatowater.r</a> &nbsp; &nbsp;
+    <a href=MultReg/TomatoWater/tomatowater.csv>tomatowater.csv</a><br>
+    <a href=MultReg/TomatoWater/tomatowater.html>tomatowater.html (R Output)</a>
+    </td>
+</tr>
+
+<tr><td>Predicting Body Fat from skin measurements</td>
+<td>Multiple regression - general linear test </td>
+<td>
+   <a href=MultReg/BodyFat/bodyfat.dat>bodyfat.dat</a><br>
+   </td>
+<td><a href=MultReg/BodyFat/bodyfat.jmp>bodyfat.jmp</a>
+   </td>
+<td><a href=MultReg/BodyFat/bodyfat.r>bodyfat.r</a> &nbsp; &nbsp;
+    <a href=MultReg/BodyFat/bodyfat.csv>bodyfat.csv</a><br>
+    <a href=MultReg/BodyFat/bodyfat.html>bodyfat.html (R Output)</a>
+</tr>
+
+
+
+<tr><td>Predicting Body Fat from skin measurements - more extensive dataset</td>
+<td>Multiple regression - general linear test<br>
+   <a href="http://www.amstat.org/publications/jse/v4n1/datasets.johnson.html">Described in Journal Stat Education</a>
+   </td>
+<td>
+   <a href=MultReg/BodyFatPer/bodyfatper.txt>bodyfatper.txt</a><br>
+   <a href=MultReg/BodyFatPer/bodyfatper-info.txt>bodyfatper-info.txt</a>
+   <br>SAS code not yet available.
+   </td>
+<td><a href=MultReg/BodyFatPer/bodyfatper.jmp>bodyfatper.jmp</a>
+   </td>
+<td><a href=MultReg/BodyFatPer/bodyfatper.r>bodyfatper.r (incomplete)</a><br>
+    <a href=MultReg/BodyFatPer/bodyfatper.csv>bodyfatper.csv</a>
+   </td>
+</tr>
+
+
+<tr><td>Predicting PM10 from environmental variables</td>
+<td>Multiple regression - case study </td>
+<td>
+   <a href=MultReg/PM10/pm10.sas>pm10.sas -not yet availablet</a><br>
+   </td>
+<td><a href=MultReg/PM10/pm10.jmp>pm10.jmp</a>
+   </td>
+<td><a href=MultReg/PM10/pm10.r>pm10.r</a> &nbsp; &nbsp;
+    <a href=MultReg/PM10/pm10.csv>pm10.csv</a><br>
+    <a href=MultReg/PM10/pm10.html>pm10.html (R Output)</a>
+    </td>
+</tr>
+
+
+<tr><td>How much do animals sleep?</td>
+<td>Multiple regression - case study </td>
+<td>
+   <a href=MultReg/AnimalSleep/animalsleep.sas>animalsleep.sas -not yet available</a><br>
+   <a href=MultReg/AnimalSleep/animalsleep.txt>animalsleep.txt - description of data</a>
+   </td>
+<td><a href=MultReg/AnimalSleep/animalsleep.jmp>animalsleep.jmp</a>
+   </td>
+<td><a href=MultReg/AnimalSleep/animalsleep.r>animalsleep.r (incomplete)</a><br>
+    <a href=MultReg/AnimalSleep/animalsleep.csv>animalsleep.csv</a>
+</tr>
+
+
+
+
+<tr><td>Degradation of dioxin in two sites</td>
+<td>ANCOVA; log-transform; trend analysis </td>
+<td>
+    <a href=ANCOVA/Dioxin2/dioxin2.sas>dioxin2.sas</a> &nbsp; &nbsp;
+    <a href=ANCOVA/Dioxin2/dioxin2.csv>dioxin2.csv</a><br>
+    <a href=ANCOVA/Dioxin2/dioxin2-SAS.pdf>dioxin2-SAS.pdf (Output)</a>
+</td>
+<td><a href=ANCOVA/Dioxin2/dioxin2.jmp>dioxin2.jmp</a>
+    <a href=ANCOVA/Dioxin2/dioxin2-JMP-prelim.pdf>dioxin-JMP-prelim.pdf</a> Preliminary plots<br>
+    <a href=ANCOVA/Dioxin2/dioxin2-JMP-nonp.pdf  >dioxin-JMP-nonp.pdf  </a> Non-parallel model<br>
+    <a href=ANCOVA/Dioxin2/dioxin2-JMP-p.pdf     >dioxin-JMP-p.pdf     </a> Parallel slope model
+    </td>
+<td><a href=ANCOVA/Dioxin2/dioxin2.r>dioxin2.r</a> &nbsp; &nbsp;
+    <a href=ANCOVA/Dioxin2/dioxin2.csv>dioxin2.csv</a><br>
+    <a href=ANCOVA/Dioxin2/dioxin2.html>dioxin2.html (R output)</a><br>
+    <a href=schwarz.functions.r>Schwarz helper functions</a>
+   </td>
+</tr>
+
+
+<tr><td>Stream slope and trout density</td>
+<td>ANCOVA, log-transform</td>
+<td><a href=ANCOVA/Stream/paired-stream.sas>paired-stream.sas</a> &nbsp; &nbsp;
+    <a href=ANCOVA/Stream/paired-stream.csv>paired-stream.csv</a>
+    <a href=ANCOVA/Stream/paired-stream-SAS.pdf>paired-stream-SAS.pdf (SAS output)</a>
+    </td>
+<td><a href=ANCOVA/Stream/paired-stream.jmp>paired-stream.jmp</a>
+    </td>
+<td><a href=ANCOVA/Stream/paired-stream.r>paired-stream.r</a> &nbsp; &nbsp;
+    <a href=ANCOVA/Stream/paired-stream.csv>paired-stream.csv</a>
+    <a href=ANCOVA/Stream/paired-stream.html>paired-stream.html (R output)</a>
+    </td>
+</tr>
+
+
+<tr><td>Condition factor of rainbow trout, Fulton's K<br>
+    </td>
+<td>ANCOVA, no intercept model, through the origin</td>
+<td><a href=ANCOVA/RainbowCondition/rainbow-condition.sas>rainbow-condition.sas</a> &nbsp; &nbsp;
+    <a href=ANCOVA/RainbowCondition/rainbow-condition.csv>rainbow-condition.csv</a><br>
+    <a href=ANCOVA/RainbowCondition/rainbow-condition-SAS.pdf>rainbow-condition-SAS.pdf (SAS output)</a>
+    </td>
+<td><a href=ANCOVA/RainbowCondition/rainbow-condition.jmp>rainbow-condition.jmp</a>
+    <a href=ANCOVA/RainbowCondition/rainbow-condition-JMP-pooledfit.pdf>rainbow-condition-JMP-pooled.pdf</a><br>
+    <a href=ANCOVA/RainbowCondition/rainbow-condition-JMP-matfit.pdf>rainbow-condition-JMP-matfit.pdf</a> (K by maturity class)<br>
+    <a href=ANCOVA/RainbowCondition/rainbow-condition-JMP-sexfit.pdf>rainbow-condition-JMP-sex.pdf</a>(K by sex)
+    </td>
+<td><a href=ANCOVA/RainbowCondition/rainbow-condition.r>rainbow-condition.r</a> &nbsp; &nbsp;
+    <a href=ANCOVA/RainbowCondition/rainbow-condition.csv>rainbow-condition.csv</a><br>
+    <a href=ANCOVA/RainbowCondition/rainbow-condition.html>rainbow-condition.html (R output)</a><br>
+</td>
+</tr>
+
+
+
+
+<tr><td>Candy Bars</td>
+<td>Multiple regression - stepwise and other model selection methods </td>
+<td>
+   <a href=MultReg/CandyBars/candybars.sas>No SAS code availalble yet</a><br>
+   </td>
+<td><a href=MultReg/CandyBars/candybars.jmp>candybars.jmp</a>
+   </td>
+<td><a href=MultReg/CandyBars/candybars.r>candybars.r (incomplete)</a><br>
+    <a href=MultReg/CandyBars/candybars.csv>candybars.csv</a><br>
+    <a href=MultReg/CandyBars/candybars.html>candybars.html (R output)</a> 
+    </td>
+</tr>
+
+<tr><td>Breakfast cereals</td>
+<td>Multiple regression - stepwise and other model selection methods <br>
+   <a href="http://lib.stat.cmu.edu/datasets/1993.expo/">Described in the 1993 Data Expo (scroll down)</a>
+   </td>
+<td>
+   <a href=MultReg/Cereal/cereal.txt>cereal.txt</a> Raw data in tab delimited form<br>
+   <a href=MultReg/Cereal/cereal.sas>No SAS code availalble yet</a><br>
+   </td>
+<td><a href=MultReg/Cereal/cereal.jmp>cereal.jmp</a>
+   </td>
+<td><a href=MultReg/Cereal/cereal.r>cereal.r (incomplete)</a><br>
+    <a href=MultReg/Cereal/cereal.csv>cereal.csv</a><br>
+    <a href=MultReg/Cereal/cereal.html>cereal.html (R output)</a>
+    </td>
+</tr>
+
+<tr><td>Predicting zoo plankton biomass</td>
+<td>Multiple regression - stepwise and other model selection methods </td>
+<td>
+   <a href=MultReg/Guadeloupe/guadeloupe>No SAS code availalble yet</a><br>
+   </td>
+<td><a href=MultReg/Guadeloupe/guadeloupe.jmp>guadeloupe.jmp</a><br>
+    <a href=MultReg/Guadeloupe/guadeloupe.txt>guadeloupe.txt</a></td>
+<td><a href=MultReg/Guadeloupe/guadeloupe.r>guadaloupe.r (incomplete)</a><br>
+    <a href=MultReg/Guadeloupe/guadeloupe.csv>guadaloupe.csv</a><br>
+    <a href=MultReg/Buadeloupe/guadeloupe.html>guadeloupe.html (R output)</a>
+</tr>
+
+
+<tr><td>Tomato response surface</td>
+<td>Response surface of tomato plants to moisture and temperature</td>
+<td>
+    <a href=RespSurface/Tomato/tomatorespsurface.sas>tomatorespsurface.sas</a><br>
+    <a href=RespSurface/Tomato/tomatorespsurface.lst>tomatorespsurface.lst</a><br>
+</td>
+<td>
+    <a href=RespSurface/Tomato/tomatorespsurface.dat>tomatorespsurface.dat</a><br>
+    <a href=RespSurface/Tomato/tomatorespsurface.jmp>tomatorespsurface.jmp</a><br>
+</td></tr>
+
+
+<tr><td>Residual Checking</td>
+<td>The importance of Residual checking <br>
+See <a href=http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/stat_res_plots.html>
+Residual (Sur)Realism</a>
+</td>
+<td>
+    <a href=Reg/ResidualCheck/residualcheck.sas>residualcheck.sas</a>  &nbsp; &nbsp;
+    <a href=Reg/ResidualCheck/residualcheck.csv>residualcheck.csv</a> <br>
+    <a href=Reg/ResidualCheck/residualcheck-SAS.pdf>residualcheck-SAS.pdf</a> - look at the last plot!<br>
+   </td>
+<td><a href=Reg/ResidualCheck/residualcheck.jmp>residualcheck.jmp</a>
+    <a href=Reg/ResidualCheck/residualcheck-JMP-output.pdf>residualcheck.jmp output</a>
+    </td>
+<td><a href=Reg/ResidualCheck/residualcheck.r>residualcheck.r (R code)</a> &nbsp; &nbsp;
+    <a href=Reg/ResidualCheck/residualcheck.csv>residualcheck.csv (data)</a><br>
+    <a href=Reg/ResidualCheck/residualcheck.html>residualcheck.html (R output)</a><br><br>
+
+    <a href=Reg/ResidualCheck/YourAnswerIsWrong.r>YourAnswerIsWrong.r (R code)</a> &nbsp; &nbsp;
+    <a href=Reg/ResidualCheck/YourAnswerIsWrong.xlsx>YourAnswerIsWrong.xlsx (data)</a><br>
+    <a href=Reg/ResidualCheck/YourAnswerIsWrong.html>YourAnswerIsWrong.html (R output)</a>
+    </td>
+</tr>
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Do bees learn?</td>
+<td colspan=2>Case study; two factor; time effects;  subsampling; unbalanced </td>
+<td colspan=3><a href=CaseStudies/BeeLearn/>Bee Learning </a>
+   </td></tr>
+
+<tr><td>Birds 'n Butts<br>Weight of cigarette butts <br> vs. number of mites </td>
+<td colspan=2>Case study; 2 factor CRD anova; regression; ancova
+   </td>
+<td colspan=3><a href=CaseStudies/BirdsAndButts/>Birds and Butts </a>
+   </td>
+</tr>
+
+<tr><td>Post-exercise oxygen consumption in fish</td>
+<td colspan=2>Case study; two factor split plot;  unbalanced 
+   </td>
+<td colspan=3><a href=CaseStudies/EpocFish/>Epoc Fish</a>
+   </td>
+</tr>
+
+<tr><td>Effect of dissolved gas on fish behaviour</td>
+<td colspan=2>Case study; multiple responses; subsampling; unbalanced 
+   </td>
+<td colspan=3><a href=CaseStudies/FishGas/>Fish Gas</a>
+   </td>
+</tr>
+
+<tr><td>Lichen study</td>
+<td colspan=2>Case study; single factor; generalized block design; subsample; pseudo-replication 
+   </td>
+<td colspan=3><a href=CaseStudies/Lichen>Lichen</a>
+   </td>
+</tr>
+
+<tr><td>Sight over sound; scoring musical performances</td>
+<td colspan=2>Case study; complex design
+   </td>
+<td colspan=3><a href=CaseStudies/SightOverSound>SightOverSound</a>
+  </td>
+</tr>
+
+<tr><td>Swimming performance after exposure to rotenone</td>
+<td colspan=2>Case study; two factor split plot;  unbalanced; subsampling 
+   </td>
+<td colspan=3><a href=CaseStudies/SwimFish>Swim Fish</a>
+  </td>
+</tr>
+
+<tr><td>Effects of a tattoo on men's behaviour and attitudes towards women: </td>
+<td colspan=2>Case study; chi-square tests; anova
+   </td>
+<td colspan=3><a href=CaseStudies/Tattoos>Tattoos</a>
+  </td>
+</tr>
+
+<tr><td>Time is not money; investigate into cheating</td>
+<td colspan=2>Case study; chisquare tests; logistic regression
+   </td>
+<td colspan=3><a href=CaseStudies/TimeIsNotMoney>TimeIsNotMoney</a>
+  </td>
+</tr
+
+<tr><td>Wolverine response to exploration camp</td>
+<td colspan=2>Case study; two-sample t-test; survival analysis; resource selection; chi-square test  </td>
+<td colspan=3><a href=CaseStudies/Wolverine/>Wolverines</a>
+   </td>
+</tr>
+
+<tr><td>Why do zebra's have stripes?</td>
+<td colspan=2>Case study; chisquare tests; logistic regression; poisson regression
+   </td>
+<td colspan=3><a href=CaseStudies/ZebraStripes>Zebra Stripes</a>
+  </td>
+</tr
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+
+<tr><td>Nest success</td>
+<td>Made up data <br>
+    Logistic regression</td>
+<td><a href=Logistic/NestSuccess/nestsuccess.sas>nestsuccess.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/NestSuccess/nestsuccess.csv>nestsuccess.csv (data)</a><br>
+    <a href=Logistic/NestSuccess/nestsuccess.pdf>nestsuccess.pdf (SAS Output)</a><br>
+<td><a href=Logistic/NestSuccess/nestsuccess.jmp>nestsuccess.jmp</a><br>
+    <a href=Logistic/NestSuccess/nestsuccess2.jmp>nestsuccess2.jmp</a><br>
+    <a href=Logistic/NestSuccess/nestsuccess-JMP-001.pdf>nestsuccess-JMP-001.pdf (JMP Output FitYbyX)</a><br>
+    <a href=Logistic/NestSuccess/nestsuccess-JMP-002.pdf>nestsuccess-JMP-002.pdf (JMP Output Fit Model - nominal logistics) </a><br>
+    <a href=Logistic/NestSuccess/nestsuccess-JMP-003.pdf>nestsuccess-JMP-003.pdf (JMP Output Fit Model - gen lin model)</a><br> </td>
+<td><a href=Logistic/NestSuccess/nestsuccess.r>nestsuccess.r</a> &nbsp; &nbsp;
+    <a href=Logistic/NestSuccess/nestsuccess.csv>nestsuccess.csv (data)</a><br>
+    <a href=Logistic/NestSuccess/nestsuccess.html>nestsuccess.html (R Output)</a></td>
+</tr>
+
+<tr><td>Space Shuttle</td>
+<td>Temperature and O-ring failure for the space shuttle<br>
+     Logistic regression</td>
+<td><a href=Logistic/SpaceShuttleORing/spaceshuttleoring.sas>spaceshuttleoring.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring.csv>spaceshuttleoring.csv</a><br>
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring-SAS.pdf>spaceshuttleoring-SAS.pdf (SAS Output)</a></td>
+<td><a href=Logistic/SpaceShuttleORing/spaceshuttleoring.jmp>spaceshuttleoring.jmp</a>
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring-JMP-001.pdf>spaceshuttleoring-JMP-001.pdf (JMP Output FitYbyX)</a><br>
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring-JMP-002.pdf>spaceshuttleoring-JMP-002.pdf (JMP Output Fit Model - nominal logistic) </a><br>
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring-JMP-003.pdf>spaceshuttleoring-JMP-003.pdf (JMP Output Fit Model - gen lin model)</a><br> </td>
+<td><a href=Logistic/SpaceShuttleORing/spaceshuttleoring.r>spaceshuttleoring.r</a> &nbsp; &nbsp;
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring.csv>spaceshuttleoring.csv (data)</a><br>
+    <a href=Logistic/SpaceShuttleORing/spaceshuttleoring.html>spaceshuttleoring.html (R Output)</a></td>
+</tr>
+
+<tr><td>Fitness</td>
+<td>Fitness dataset that ships with JMP<br>
+     Logistic regression</td>
+<td><a href=Logistic/Fitness/fitness.sas>fitness.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/Fitness/fitness.csv>fitness.csv</a><br>
+    <a href=Logistic/Fitness/fitness-SAS.pdf>fitness-SAS.pdf (SAS Output)</a></td>
+<td><a href=Logistic/Fitness/fitness.jmp>fitness.jmp</a>
+    <a href=Logistic/Fitness/fitness-JMP-001.pdf>fitness-JMP-001.pdf (JMP Output 4 variable models)</a><br>
+    <a href=Logistic/Fitness/fitness-JMP-002.pdf>fitness-JMP-002.pdf (JMP Output Response surface)) </a><br>
+    <a href=Logistic/Fitness/fitness-JMP-003.pdf>fitness-JMP-003.pdf (JMP Output 2 variable models)</a><br> </td>
+<td><a href=Logistic/Fitness/fitness.r>fitness.r</a> &nbsp; &nbsp;
+    <a href=Logistic/Fitness/fitness.csv>fitness.csv (data)</a><br>
+    <a href=Logistic/Fitness/fitness.html>fitness.html (R Output)</a></td>
+</tr>
+
+
+<tr><td>Marijuana Usage</td>
+<td>Student usage vs parental usage of alcohol or marijuana - short version<br>
+    Logistic regression; retrospective studies; odds-ratio </td>
+<td><a href=Logistic/Marijuana-short/marijuana-short.sas>marijuana-short.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/Marijuana-short/marijuana-short.csv>marijuana-short.csv</a><br>
+    <a href=Logistic/Marijuana-short/marijuana-short-SAS.pdf>marijuana-short-SAS.pdf (SAS Output)</a><br>
+<td><a href=Logistic/Marijuana-short/marijuana-short.jmp>marijuana-short.jmp</a><br>
+    <a href=Logistic/Marijuana-short/marijuana-short-JMP-chisq.pdf>marijuana-short-JMP-chisq.pdf (JMP Output - chisquare test)</a><br>
+    <a href=Logistic/Marijuana-short/marijuana-short-JMP-logistic1.pdf>marijuana-short-JMP-logistic1.pdf (JMP Output - logistic reg 1)) </a><br>
+    <a href=Logistic/Marijuana-short/marijuana-short-JMP-logistic2.pdf>marijuana-short-JMP-logistic2.pdf (JMP Output - logistic reg 2)</a><br> </td>
+<td><a href=Logistic/Marijuana-short/marijuana-short.r>marijuana-short.r</a> &nbsp; &nbsp;
+    <a href=Logistic/Marijuana-short/marijuana-short.csv>marijuana-short.csv (data)</a><br>
+    <a href=Logistic/Marijuana-short/marijuana-short.html>marijuana-short.html (R Output)</a></td>
+</tr>
+
+
+<tr><td>Selenium tadpoles</td>
+<td>Effect of levels of selenium on deformities in tadpoles<br>
+    Logistic regression; multiple comparisons </td>
+<td><a href=Logistic/Selenium-tadpoles/selenium-tadpoles.sas>selenium-tadpoles.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles.csv>selenium-tadpoles.csv (data)</a><br>
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles-SAS.pdf>selenium-tadpoles-SAS.pdf (SAS Output)</a>
+    </td>
+<td><a href=Logistic/Selenium-tadpoles/selenium-tadpoles.jmp>selenium-tadpoles.jmp</a>
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles-JMP-chisq.pdf>selenium-tadpoles-JMP-chisq.pdf (JMP Output - chisquare test)</a><br>
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles-JMP-logistic1.pdf>selenium-tadpoles-JMP-logistic1.pdf (JMP Output - logistic reg 1)) </a><br>
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles-JMP-logistic2.pdf>selenium-tadpoles-JMP-logistic2.pdf (JMP Output - logistic reg 2)</a></td>
+<td><a href=Logistic/Selenium-tadpoles/selenium-tadpoles.r>selenium-tadpoles.r</a> &nbsp; &nbsp;
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles.csv>selenium-tadpoles.csv</a><br>
+    <a href=Logistic/Selenium-tadpoles/selenium-tadpoles.html>selenium-tadpoles.html (R output)</a><br>
+</td>
+</tr>
+
+<tr><td>Pet fish survival </td>
+<td>What factors influence pet fish survival<br>
+    Logistic regression </td>
+<td>
+    <a href=Logistic/FishAlive/fishalive.sas>fishalive.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/FishAlive/fishalive.csv>fishalive.csv</a><br>
+    <a href=Logistic/FishAlive/fishalive-SAS.pdf>fishalive-SAS.pdf (SAS output)</a></td>
+<td><a href=Logistic/FishAlive/fishalive.jmp>fishalive.jmp</a><br>
+    <a href=Logistic/FishAlive/fishalive-JMP-fullmodel.pdf>fishalive-JMP-fullmodel.pdf (JMP Output - full model)</a><br>
+    <a href=Logistic/FishAlive/fishalive-JMP-reducedmodel.pdf>fishalive-JMP-reducedmodel.pdf (JMP Output - reduced model) </a></td>
+<td><a href=Logistic/FishAlive/fishalive.r>fishalive.r </a> &nbsp; &nbsp;
+    <a href=Logistic/FishAlive/fishalive.csv>fishalive.csv </a><br>
+    <a href=Logistic/FishAlive/fishalive.html>fishalive.html (R output)</a><br>
+    </td></tr>
+
+
+<tr><td>Horseshoe Crab</td>
+<td>What factors influence presence or absence of satellite male<br>
+    Logistic regression; Poisson regression
+    </td>
+<td><a href=Logistic/CrabSatellites/crabsatellites-logit.sas>crabsatellites-logit.sas</a>&nbsp; &nbsp;
+    <a href=Logistic/CrabSatellites/crabsatellites.csv>crabsatellites.csv</a><br>
+    <a href=Logistic/CrabSatellites/crabsatellites-logit-SAS.pdf>crabsatellites-logit-SAS.pdf (SAS Output)</a></td>
+<td><a href=Logistic/CrabSatellites/crabsatellites.jmp>crabsatellites.jmp</a>
+    <a href=Logistic/CrabSatellites/crabsatellites-logit-JMP-fullmodel.pdf>
+       crabsatellites-logit-JMP-fullmodel.pdf (JMP Output - full model)</a><br>
+    <a href=Logistic/CrabSatellites/crabsatellites-logit-JMP-reducedmodel.pdf>
+       crabsatellites-logit-JMP-reducedmodel.pdf (JMP Output - full model)</a>
+    </td>
+<td><a href=Logistic/CrabSatellites/crabsatellites-logit.r>crabsatellites-logit.r </a> &nbsp; &nbsp;
+    <a href=Logistic/CrabSatellites/crabsatellites-logit.csv>crabsatellites-logit.csv </a><br>
+    <a href=Logistic/CrabSatellites/crabsatellites-logit.html>crabsatellites-logit.html (R output)</a><br>
+    </td>
+</tr>
+
+
+<tr><td>Fate of Titanic Passengers</td>
+<td>Women and Chlldren first? <br>
+    Logistic regression<br>
+   <a href='http://www.statsci.org/data/general/titanic.html'>Original source of dataset</a>
+    </td>
+<td><a href=Logistic/Titanic/titanicpassengers.sas>titanicpassengers.sas</a><br>
+    <a href=Logistic/Titanic/titanicpassengers.lst>titanicpassengers.lst</a><br>
+    SAS code not yet available</td>
+<td><a href=Logistic/Titanic/titanicpassengers.txt>titanicpassengers.txt</a><br>
+    <a href=Logistic/Titanic/titanicpassengers.jmp>titanicpassengers.jmp</a>
+    </td>
+<td><a href=Logistic/Titanic/titanic.r>titanicpassengers.r </a> &nbsp; &nbsp;
+    <a href=Logistic/Titanic/titanicpassengers.csv>titanicpassengers.csv </a><br>
+    <a href=Logistic/Titanic/titanicpassengers.html>titanicpassengers.html (R output)</a> 
+</tr>
+
+<tr><td>Credit Worthiness</td>
+<td>What factors influence credit worthiness<br>
+    Logistic regression; stepwise;<br>
+    <a href=http://www.stat.uni-muenchen.de/service/datenarchiv/kredit/kredit_e.html>Source of
+data set</a>
+    </td>
+<td><a href=Logistic/CreditCheck/creditcheck.sas>creditcheck.sas</a><br>
+    <a href=Logistic/CreditCheck/creditcheck-SAS.pdf>creditcheck-SAS.pdf (SAS Output)</a><br>
+    </td>
+<td><a href=Logistic/CreditCheck/creditcheck.jmp>creditcheck.jmp</a><br>
+    <a href=Logistic/CreditCheck/CreditCheckVarDefs.pdf>Code book</a>
+    </td>
+<td><a href=Logistic/CreditCheck/creditcheck.r>creditcheck.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/CreditCheck/creditcheck.csv>creditcheck.csv</a><br>
+    <a href=Logistic/CreditCheck/creditcheck.html>creditcheck.html (R Output)</a><br>
+</tr>
+
+
+<tr><td>Gender vs Height</td>
+<td>Complete separation in logistic regression. Firth's method </td>
+<td><a href=Logistic/Separation/logistic-separation.sas>logistic-separation.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/Separation/logistic-separation.csv>logistic-separation.csv</a><br>
+    <a href=Logistic/Separation/logistic-separation-SAS.pdf>logistic-separation.pdf</a>
+    </td>
+<td><a href=Logistic/Separation/logistic-separation.jmp>logistic-separation.jmp</a><br>
+    <a href=Logistic/Separation/logistic-separation-JMP-problem.pdf>logistic-separation-JMP-problem.pdf</a> (JMP output showing problem)<br>
+    <a href=Logistic/Separation/logistic-separation-JMP-firth.pdf>logistic-separation-JMP-firth.pdf</a> (JMP output with Firth correction)<br>
+    </td>
+<td><a href=Logistic/Separation/logistic-separation.r>logistic-separation.r</a> &nbsp; &nbsp;
+    <a href=Logistic/Separation/logistic-separation.csv>logistic-separation.csv</a><br>
+    <a href=Logistic/Separation/logistic-separation.html>logistic-separation.html</a> (R output)
+    </td>
+</tr>
+
+
+<tr><td>Fox effect on sex ratio</td>
+<td>What is the impact of predation control on sex ratio<br>
+    Logistic regression with random effects.<br>
+    This is the sacrificial pseudo-replication example of Hurlbert (1984)
+    </td>
+<td><a href=Logistic/Foxes/foxes.sas>foxes.sas</a> &nbsp; &nbsp;
+    <a href=Logistic/Foxes/foxes.csv>foxes.csv</a><br>
+    <a href=Logistic/Foxes/foxes-SAS.pdf>foxes.pdf</a>
+    </td>
+<td><a href=Logistic/Foxes/foxes.jmp>foxes.jmp</a><br>
+    <a href=Logistic/Foxes/foxes-JMP-ttest.pdf>foxes-JMP-ttest.pdf</a> (JMP output using t-test)<br>
+    <a href=Logistic/Foxes/foxes-JMP-glm-over.pdf>foxes-JMP-glm-over.pdf</a> (JMP output GLM with overdispersion)<br>
+    </td>
+<td><a href=Logistic/Foxes/foxes.r>foxes.r</a> &nbsp; &nbsp;
+    <a href=Logistic/Foxes/foxes.csv>foxes.csv</a><br>
+    <a href=Logistic/Foxes/foxes.html>foxes.html</a> (R output)
+    </td>
+</tr>
+
+
+
+<tr><td>Seed germination</td>
+<td>What factors influence seed germination<br>
+    Logistic regression; overdispersion; quasi-binomial; random effects.
+    </td>
+<td><a href=Logistic/Germination/germination.sas>germination.sas</a> &nbsp; &nbsp; 
+    <a href=Logistic/Germination/germination.csv>germination.csv</a><br>
+    <a href=Logistic/Germination/germination-SAS.pdf>germination-SAS.pdf (SAS Output)</a>
+    </td>
+<td><a href=Logistic/Germination/germination.jmp>germination.jmp</a> <br>
+    <a href=Logistic/Germination/germination-JMP-lm.pdf>germination-JMP-lm.pdf (Simple model)</a> <br>
+    <a href=Logistic/Germination/germination-JMP-glm.pdf>germination-JMP-glm.pdf (GLM with overdispersion)</a>
+    </td>
+<td><a href=Logistic/Germination/germination.r>germination.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/Germination/germination.csv>germination.csv</a><br>
+    <a href=Logistic/Germination/germination.html>germination.html (R Output)</a>
+</tr>
+
+
+
+<tr><td>Mosquito choice - single treatment </td>
+<td>Example of binary preference model.<br>
+    Logistic regression; overdispersion; quasi-binomial; random effects.
+    </td>
+<td><a href=Logistic/Mosquitos/mosquitos.sas>mosquitos.sas</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos/mosquitos.csv>mosquitos.csv</a><br>
+    <a href=Logistic/Mosquitos/mosquitos-SAS.pdf>mosquitos-SAS.pdf (SAS Output)</a>
+    </td>
+<td><a href=Logistic/Mosquitos/mosquitos.jmp>mosquitos.jmp</a> <br>
+    <a href=Logistic/Mosquitos/mosquitos-JMP-ttestp.pdf>mosquitos-JMP-ttestp.pdf (t-test on empirical proportions)
+    <a href=Logistic/Mosquitos/mosquitos-JMP-ttestlogit.pdf>mosquitos-JMP-ttestlogit.pdf (t-test on empirical logits)
+    <a href=Logistic/Mosquitos/mosquitos-JMP-glmquasi.pdf>mosquitos-JMP-glmquasi.pdf (GLM with overdispersion)</a>
+    </td>
+<td><a href=Logistic/Mosquitos/mosquitos.r>mosquitos.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos/mosquitos.csv>mosquitos.csv</a><br>
+    <a href=Logistic/Mosquitos/mosquitos.html>mosquitos.html (R Output)</a>
+</tr>
+
+<tr><td>Mosquito choice - multiple treatments </td>
+<td>Example of binary preference model comparing several treatments
+in complete blocks.<br>
+    Logistic regression; overdispersion; quasi-binomial; random effects.
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos2.sas>mosquitos2.sas</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos2/mosquitos2.csv>mosquitos2.csv</a><br>
+    <a href=Logistic/Mosquitos2/mosquitos2-SAS.pdf>mosquitos2-SAS.pdf (SAS Output)</a>
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos2.jmp>mosquitos2.jmp</a> <br>
+    <a href=Logistic/Mosquitos2/mosquitos2-JMP-ttestp.pdf>mosquitos2-JMP-ttestp.pdf (t-test on empirical p's)
+    <a href=Logistic/Mosquitos2/mosquitos2-JMP-rcbp.pdf>mosquitos2-JMP-rcbp.pdf (RCB on empirical p's)
+    <a href=Logistic/Mosquitos2/mosquitos2-JMP-ttestlogit.pdf>mosquitos2-JMP-ttestlogit.pdf (t-tests on empirical logits)
+    <a href=Logistic/Mosquitos2/mosquitos2-JMP-rcblogit.pdf>mosquitos2-JMP-rcblogit.pdf (RCB on empirical logits)
+    <a href=Logistic/Mosquitos2/mosquitos2-JMP-glmquasi.pdf>mosquitos2-JMP-glmquasi.pdf (GLM with overdispersion)</a>
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos2.r>mosquitos2.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos2/mosquitos2.csv>mosquitos2.csv</a><br>
+    <a href=Logistic/Mosquitos2/mosquitos2.html>mosquitos2.html (R Output)</a>
+</tr>
+
+<tr><td>Mosquito choice - multiple treatments </td>
+<td>Example of binary preference model comparing several treatments
+in INCOMPLETE blocks.<br>
+    Logistic regression; overdispersion; quasi-binomial; random effects.
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos3.sas>mosquitos3.sas</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos2/mosquitos3.csv>mosquitos3.csv</a><br>
+    <a href=Logistic/Mosquitos2/mosquitos3-SAS.pdf>mosquitos3-SAS.pdf (SAS Output)</a>
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos3.jmp>mosquitos3.jmp</a> <br>
+    <a href=Logistic/Mosquitos2/mosquitos3-JMP-rcbp.pdf>mosquitos3-JMP-rcbp.pdf (RCB on empirical p's)
+    <a href=Logistic/Mosquitos2/mosquitos3-JMP-rcblogit.pdf>mosquitos3-JMP-rcblogit.pdf (RCB on empirical logits)
+    <a href=Logistic/Mosquitos2/mosquitos3-JMP-glmquasi.pdf>mosquitos3-JMP-glmquasi.pdf (GLM with overdispersion)</a>
+    </td>
+<td><a href=Logistic/Mosquitos2/mosquitos3.r>mosquitos3.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/Mosquitos2/mosquitos3.csv>mosquitos3.csv</a><br>
+    <a href=Logistic/Mosquitos2/mosquitos3.html>mosquitos3.html (R Output)</a>
+</tr>
+
+
+<tr><td>Power of the Orange Side</td>
+<td>Effect of Ads on cellphone interruptions in movies<br>
+    </td>
+<td><a href=Logistic/Orange/orange.sas>orange.sas</a> &nbsp; &nbsp; 
+    <a href=Logistic/Orange/orange.csv>orange.csv</a><br>
+    <a href=Logistic/Orange/orange-SAS.pdf>orange-SAS.pdf (SAS Output)</a> 
+    </td>
+<td><a href=Logistic/Orange/orange.jmp>orange.jmp</a> <br>
+    <a href=Logistic/Orange/orange-JMP-chisquare.pdf>orange-JMP-chisquare.pdf - Chiquare test</a><br>
+    <a href=Logistic/Orange/orange-JMP-FitModel.pdf>orange-JMP-FitModel.pdf - Analysis using Fit Y by X</a><br>
+    <a href=Logistic/Orange/orange-JMP-GLM.pdf>orange-JMP-GLM.pdf - Analysis using GLM</a>
+    </td>
+<td><a href=Logistic/Orange/orange.r>orange.r</a> &nbsp; &nbsp; 
+    <a href=Logistic/Orange/orange.csv>cellphone.xlsx</a><br>
+    <a href=Logistic/Orange/orange.html>orange.html (R Output)</a>
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Salamanders after burn</td>
+<td>Relationship between number of salamanders and time since burn<br>
+    Poisson regression
+    </td>
+<td><a href=Poisson/Salamanders-burn/salamanders-burn.sas>salamanders-burn.sas</a><br>
+    <a href=Poisson/Salamanders-burn/salamanders-burn.pdf>salamanders-burn.pdf</a> - output <br>
+    <a href=Poisson/Salamanders-burn/salamanders-burn.txt>salamanders-burn.txt</a> - raw data <br>
+<td><a href=Poisson/Salamanders-burn/salamanders-burn.jmp>salamanders-burn.jmp</a>
+    </td>
+</tr>
+
+<tr><td>Skin Cancer</td>
+<td>Skin cancer rates in Minneapolis and Dallas<br>
+    Poisson Regression
+    </td>
+<td><a href=Poisson/SkinCancer/skincancer.sas>skincancer.sas</a><br>
+    <a href=Poisson/SkinCancer/skincancer.lst>skincancer.lst</a><br>
+    SAS code not yet available</td>
+<td><a href=Poisson/SkinCancer/skincancer.jmp>skincancer.jmp</a>
+    </td>
+
+<tr><td>Insect Counts</td>
+<td>Do different treatments affect counts of insects in traps<br>
+       Poisson regression with over dispersion
+    </td>
+<td><a href=Poisson/InsectCount/insectcount.sas>insectcount.sas</a><br>
+    <a href=Poisson/InsectCount/insectcount.lst>insectcount.lst</a><br>
+    SAS code not yet available</td>
+<td><a href=Poisson/InsectCount/insectcount.jmp>insectcount.jmp</a>
+    </td>
+
+<tr><td>Horseshoe Crab</td>
+<td>What factors influence presence or absence of satellite male<br>
+    Logistic regression; Poisson regression
+    </td>
+<td><a href=Logistic/CrabSatellites/crabsatellites.sas>crabsatellites.sas</a><br>
+    <a href=Logistic/CrabSatellites/crabsatellites.lst>crabsatellites.lst</a><br>
+    SAS code not yet available</td>
+<td><a href=Logistic/CrabSatellites/crabsatellites.jmp>crabsatellites.jmp</a>
+    </td>
+</tr>
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>AR simulation</td>
+<td> AR(3) simulation model of time series.
+    </td>
+<td><a href=TimeSeries/Simulations/ARsimulation.sas>ARsimulation.sas</a><br>
+    <a href=TimeSeries/Simulations/ARsimulation.lst>ARsimulation.lst</a><br>
+    <a href=TimeSeries/Simulations/ARsimulation>pdf output (acf, iacf, pacf)</a><br>
+</td>
+<td><a href=TimeSeries/Simulations/ARsimulation.jmp>ARsimulation.jmp</a>
+    </td>
+</tr>
+
+<tr><td>MA simulation</td>
+<td> MA(3) simulation model of time series.
+    </td>
+<td><a href=TimeSeries/Simulations/MAsimulation.sas>MAsimulation.sas</a><br>
+    <a href=TimeSeries/Simulations/MAsimulation.lst>MAsimulation.lst</a><br>
+    <a href=TimeSeries/Simulations/MAsimulation>pdf output(acf, iacf, pacf)</a>
+</td>
+<td><a href=TimeSeries/Simulations/MAsimulation.jmp>MAsimulation.jmp</a>
+    </td>
+</tr>
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Power analysis</td>
+<td> Power analysis; sample size determination; complex experimental designs.
+    </td>
+<td><a href=Power/index.html>Link to examples of power analysis in complex experimental designs</a>
+</td>
+    </td>
+</tr>
+
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>Maximum Likelihood Estimation</td>
+<td> Some illustrations of computing MLEs
+    </td>
+<td><a href=MLE/MLE.xls>Sample spread sheets illustrating how to numerically compute MLEs</a>
+</td>
+    </td>
+</tr>
+
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+
+<tr><td>SAS tricks and tips</td>
+<td> </td>
+<td><a href=SASTricks/output-to-LaTeX.sas>Getting output from SAS to LaTeX</a><br>
+    <a href=SASTricks/NewLatexTagset.sas>Modified LateX tagset to get stacked column headers</a><br>
+    <a href=SASTricks/SASTricks.zip>Zip archive of this directory contents</a>
+</td>
+    </td>
+</tr>
+
+
+<tr><td colspan=5 bgcolor="#C0C0C0">&nbsp;</td></tr>
+<tr><td>Multivariate, Redundancy Analysis (RDA)</td>
+<td>Legendre and Legendre, Numerical Ecology, Table 11.3<br>
+    Fish abundance vs. Subtrate on a coral reef<br>
+    The <b>vegan</b> package is available in CRAN<br>
+    The <a href="http://www.bio.umontreal.ca/legendre/indexEn.html#RFunctions">
+       <b>rdaTest</b> package</a> needs to downloaded and installed using the command line. Refer to the
+       R code.
+    </td>
+<td><a href=Multivariate/RDA/Fish/fishrda.sas>fishrda.sas</a><br>
+    <a href=Multivariate/RDA/Fish/fishrda.pdf>fishrda.pdf</a>
+</td>
+<td>Not possible in JMP</td>
+<td><a href=Multivariate/RDA/Fish/fishrda.r>fishrda.r</a><br>
+    <a href=Multivariate/RDA/Fish/fishrda.csv>fishrda.csv</a></td>
+</tr>
+-->
+
+
+
+
+</table>
+
+
+
+<hr>
+<address>
+<a href=mailto:cschwarz@sfu.ca>Email comments or suggestions to Carl Schwarz (cschwarz@sfu.ca)</a></address>
+<font size=-2>&copy; 2021 Carl James Schwarz
+Last updated 2025-12-10</font>
+</body>
+</html>
+
