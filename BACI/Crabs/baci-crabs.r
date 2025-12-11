@@ -164,7 +164,7 @@ summary(contrast(result.emmo.SP, list(baci=c(1,-1,-1,1))), infer=TRUE)
 # Power analysis for simple BACI analysis
 
 # For a simple BACI there is 
-#   1 site in each of treatment and control -> ns_T=1, ns_C=1
+#   1 site in each of treatment and control -> ns_I=1, ns_C=1
 #   1 year before/after                     -> ny_B=1, ny_A=1
 # We cannot separate the site-year interaction from the means so we hope
 # for the best and suppose that sdSiteYear=0
@@ -172,7 +172,7 @@ summary(contrast(result.emmo.SP, list(baci=c(1,-1,-1,1))), infer=TRUE)
 # Example of crabs.
 # We think that a 20 percentage difference in the differential change is important.
 # We arbitarily choose 4 mu values that give us this change
-#  E.g. mu_tb =0, mu_ta=.20, mu_cb=0, mu_ca=0
+#  E.g. mu_IB =0, mu_IS=.20, mu_CB=0, mu_CA=0
 #
 # We don't have to worry about the sdSite or the sdYear because these "cancel"
 # because every site is measured every year.
@@ -186,10 +186,10 @@ summary(contrast(result.emmo.SP, list(baci=c(1,-1,-1,1))), infer=TRUE)
 
 # illustration of how the power program work for a specific scenario
 sdResid <- summary(result.lm2)$sigma
-baci.power(n_TA=5, n_TB=5, n_CA=5, n_CB=5, 
-           ns_T=1, ns_C=1, 
+baci.power(n_IA=5, n_IB=5, n_CA=5, n_CB=5, 
+           ns_I=1, ns_C=1, 
            ny_B=1, ny_A=1, 
-           mu_TA=.2, mu_TB=0, mu_CA=0, mu_CB=0, 
+           mu_IA=.2, mu_IB=0, mu_CA=0, mu_CB=0, 
            sdYear=0, sdSite=0, sdSiteYear=0, sdResid=sdResid)
 
 
@@ -203,10 +203,10 @@ scenarios
 power <- plyr::adply(scenarios,1,function(x){
    #browser()
    power <- baci.power(
-            n_TA=x$n_quad, n_TB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
-            ns_T=1, ns_C=1, 
+            n_IA=x$n_quad, n_IB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
+            ns_I=1, ns_C=1, 
             ny_B=1, ny_A=1, 
-            mu_TA=x$baci_effect, mu_TB=0, mu_CA=0, mu_CB=0, 
+            mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
             sdYear=0, sdSite=0, sdSiteYear=0, sdResid=x$sdResid)
    power
 })
@@ -214,7 +214,7 @@ power <- plyr::adply(scenarios,1,function(x){
 power
 
 cat("\n")
-power[,c("alpha","n_TA","n_TB","n_CA","n_CB","baci","power")]
+power[,c("alpha","n_IA","n_IB","n_CA","n_CB","baci","power")]
 ##***part500e;
 
 

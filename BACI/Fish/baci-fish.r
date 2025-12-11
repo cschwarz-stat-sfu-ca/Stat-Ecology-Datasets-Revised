@@ -234,13 +234,13 @@ plot(diagplot)
 
 # Example of of the fish analysis.
 # Fish counts are quite variable and a BACI difference of .5 on the log scale is important
-#    We use mu_TA=20, mu_TB=30, mu_CB=30, mu_cA=30
+#    We use mu_IA=20, mu_IB=30, mu_CB=30, mu_cA=30
 #
 # We have the year-to-year variation (sdYear) 
 # The site-to-site variation can be set to any arbitrary value (e.g. 0)
 # The residual and site-year variance components are confounded to set
 # the sdYearSite and the sdResidual to 0
-# Also set the n_TA=1 etc.
+# Also set the n_IA=1 etc.
 #
 # We examine various scenarios for the number of sites and number subsamples 
 
@@ -248,14 +248,14 @@ plot(diagplot)
 
 
 # Illustrate how to get computations for a single scenario
-baci.power(n_TA=1, n_TB=1, n_CA=1, n_CB=1, 
-           ns_T=1, ns_C=1, 
+baci.power(n_IA=1, n_IB=1, n_CA=1, n_CB=1, 
+           ns_I=1, ns_C=1, 
            ny_B=12, ny_A=13, 
-           mu_TA=.2, mu_TB=0, mu_CA=0, mu_CB=0, 
+           mu_IA=.2, mu_IB=0, mu_CA=0, mu_CB=0, 
            sdYear=31.71, sdSite=99, sdSiteYear=27.07, sdResid=0)
 
 
-
+vc <- as.data.frame(VarCorr(result.lmer))
 ##***part500b;
 # Note that because there is only 1 site, there is NO variance component
 # associated with site. Use any value here. In general, the site variance
@@ -276,10 +276,10 @@ head(scenarios)
 power <- plyr::adply(scenarios,1,function(x){
   #browser()
   power <- baci.power(
-    n_TA=x$n_quad, n_TB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
-    ns_T=1, ns_C=1, 
+    n_IA=x$n_quad, n_IB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
+    ns_I=1, ns_C=1, 
     ny_B=x$n.months_B, ny_A=x$n.months_A, 
-    mu_TA=x$baci_effect, mu_TB=0, mu_CA=0, mu_CB=0, 
+    mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
     sdYear=x$sdYear, sdSite=0, sdSiteYear=x$sdResid, sdResid=0)
   power
 })

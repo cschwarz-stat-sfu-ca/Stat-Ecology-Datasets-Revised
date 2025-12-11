@@ -335,7 +335,7 @@ plot(diagplot)
 
 # Example of crab - modifieds.
 # Density is about 35 and a BACI difference on the log scale of .2 is important
-#    We use mu_TA=.2, mu_TB=0, mu_CB=0, mu_cA=0
+#    We use mu_IA=.2, mu_IB=0, mu_CB=0, mu_CA=0
 #
 # We don't have to worry about the sdSite or the sdYear because these "cancel"
 # because every site is measured every year.
@@ -346,10 +346,10 @@ plot(diagplot)
 
 
 # An illustration of how to run for single case
-baci.power(n_TA=5, n_TB=5, n_CA=5, n_CB=5, 
-           ns_T=1, ns_C=2, 
+baci.power(n_IA=5, n_IB=5, n_CA=5, n_CB=5, 
+           ns_I=1, ns_C=2, 
            ny_B=1, ny_A=1, 
-           mu_TA=30, mu_TB=35, mu_CA=35, mu_CB=35, 
+           mu_IA=30, mu_IB=35, mu_CA=35, mu_CB=35, 
            sdYear=0, sdSite=3.831, sdSiteYear=1.296, sdResid=3.30)
 
 
@@ -368,7 +368,7 @@ cat("Estimated variance components are \nsdSiteYear ", round(sdSiteYear,2),
 cat("\n")
 
 scenarios <- expand.grid(n_quad=seq(5,40,5),
-                         ns_T = c(1,2),
+                         ns_I = c(1,2),
                          ns_C = seq(2,10,2),
                          baci_effect=0.2,
                          sdSiteYear=sdSiteYear,
@@ -380,10 +380,10 @@ head(scenarios)
 power <- plyr::adply(scenarios,1,function(x){
   #browser()
   power <- baci.power(
-    n_TA=x$n_quad, n_TB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
-    ns_T=x$ns_T, ns_C=x$ns_C, 
+    n_IA=x$n_quad, n_IB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
+    ns_I=x$ns_I, ns_C=x$ns_C, 
     ny_B=1, ny_A=1, 
-    mu_TA=x$baci_effect, mu_TB=0, mu_CA=0, mu_CB=0, 
+    mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
     sdYear=0, sdSite=x$sdSite, sdSiteYear=x$sdSiteYear, sdResid=x$sdResid)
   power
 })
@@ -391,13 +391,13 @@ cat("\nSome of the power computations\n")
 head(power)
 
 cat("\n")
-head(power[,c("alpha","ns_T","ns_C","n_TA","n_TB","n_CA","n_CB","baci","power")])
+head(power[,c("alpha","ns_I","ns_C","n_IA","n_IB","n_CA","n_CB","baci","power")])
 ##***part500e;
 
 
 
 # sink("baci-crabs-mod-power-R-500.txt", split=TRUE) # get a smaller report
-power[,c("alpha","ns_T","ns_C","n_TA","n_TB","n_CA","n_CB","baci","power")]
+power[,c("alpha","ns_I","ns_C","n_IA","n_IB","n_CA","n_CB","baci","power")]
 #sink()
 
 
@@ -412,17 +412,17 @@ power.plot <- ggplot(data=power, aes(x=n_quad, y=power, color=as.factor(ns_C)))+
   geom_hline(yintercept=0.8, color="blue")+
   xlab("Number of quadrats at each site:year")+
   scale_color_discrete(name="# Site\nControl")+
-  facet_wrap(~ns_T, ncol=2, labeller=label_both)
+  facet_wrap(~ns_I, ncol=2, labeller=label_both)
 power.plot
 ##***part510e;
 
 
 ##***part520b;
 # you could also have different sample sizes in impact an control areas.
-results <-  baci.power(n_TA=20, n_TB=20, n_CA=5, n_CB=5, 
-                            ns_T=1, ns_C=4, 
+results <-  baci.power(n_IA=20, n_IB=20, n_CA=5, n_CB=5, 
+                            ns_I=1, ns_C=4, 
                             ny_B=1, ny_A=1, 
-                            mu_TA=0.2, mu_TB=0, mu_CA=0, mu_CB=0, 
+                            mu_IA=0.2, mu_IB=0, mu_CA=0, mu_CB=0, 
                             sdYear=0, sdSite=sdSite, sdSiteYear=sdSiteYear, sdResid=sdResid)
 results
 ##***part520e;

@@ -11,7 +11,7 @@
 
 <meta name="author" content="cschwarz" />
 
-<meta name="date" content="2025-12-08" />
+<meta name="date" content="2025-12-10" />
 
 <title>baci-fish.r</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">baci-fish.r</h1>
 <h4 class="author">cschwarz</h4>
-<h4 class="date">2025-12-08</h4>
+<h4 class="date">2025-12-10</h4>
 
 </div>
 
@@ -777,13 +777,13 @@ diagplot &lt;- sf.autoplot.lmer(result.lmer)</code></pre>
 
 # Example of of the fish analysis.
 # Fish counts are quite variable and a BACI difference of .5 on the log scale is important
-#    We use mu_TA=20, mu_TB=30, mu_CB=30, mu_cA=30
+#    We use mu_IA=20, mu_IB=30, mu_CB=30, mu_cA=30
 #
 # We have the year-to-year variation (sdYear) 
 # The site-to-site variation can be set to any arbitrary value (e.g. 0)
 # The residual and site-year variance components are confounded to set
 # the sdYearSite and the sdResidual to 0
-# Also set the n_TA=1 etc.
+# Also set the n_IA=1 etc.
 #
 # We examine various scenarios for the number of sites and number subsamples 
 
@@ -791,32 +791,28 @@ diagplot &lt;- sf.autoplot.lmer(result.lmer)</code></pre>
 
 
 # Illustrate how to get computations for a single scenario
-baci.power(n_TA=1, n_TB=1, n_CA=1, n_CB=1, 
-           ns_T=1, ns_C=1, 
+baci.power(n_IA=1, n_IB=1, n_CA=1, n_CB=1, 
+           ns_I=1, ns_C=1, 
            ny_B=12, ny_A=13, 
-           mu_TA=.2, mu_TB=0, mu_CA=0, mu_CB=0, 
+           mu_IA=.2, mu_IB=0, mu_CA=0, mu_CB=0, 
            sdYear=31.71, sdSite=99, sdSiteYear=27.07, sdResid=0)</code></pre>
-<pre><code>##   alpha sdSite sdYear sdSiteYear sdResid n_TA n_TB n_CA n_CB ns_T ns_C ny_B
+<pre><code>##   alpha sdSite sdYear sdSiteYear sdResid n_IA n_IB n_CA n_CB ns_I ns_C ny_B
 ## 1  0.05     99  31.71      27.07       0    1    1    1    1    1    1   12
-##   ny_A mu_TA mu_TB mu_CA mu_CB baci  baci.se dfdenom          ncp    Fcrit
+##   ny_A mu_IA mu_IB mu_CA mu_CB baci  baci.se dfdenom          ncp    Fcrit
 ## 1   13   0.2     0     0     0  0.2 15.32537      23 0.0001703092 4.279344
 ##        power    Tcrit  os.power1  os.power2
 ## 1 0.05001794 1.713872 0.05132061 0.04870662</code></pre>
-<pre class="r"><code>##***part500b;
+<pre class="r"><code>vc &lt;- as.data.frame(VarCorr(result.lmer))
+##***part500b;
 # Note that because there is only 1 site, there is NO variance component
 # associated with site. Use any value here. In general, the site variance
 # component is not important because when you meaure the same sites over time
 # the site effects cancel out (like blocking) and so site-to-site variability
 # is not important. The site-year variation really is what drives the BACI power.
 
-vc &lt;- as.data.frame(vc)
-
 sdResid = vc[ vc$grp==&quot;Residual&quot;,      &quot;sdcor&quot;]
 sdYear  = vc[ vc$grp==&quot;SamplingTimeF&quot;, &quot;sdcor&quot;]
 
-
-
-##***part500b;
 scenarios &lt;- expand.grid(n_quad=1,
                          n.months_B =seq(12,20,2),
                          n.months_A =seq(13,20,1),
@@ -833,10 +829,10 @@ head(scenarios)</code></pre>
 <pre class="r"><code>power &lt;- plyr::adply(scenarios,1,function(x){
   #browser()
   power &lt;- baci.power(
-    n_TA=x$n_quad, n_TB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
-    ns_T=1, ns_C=1, 
+    n_IA=x$n_quad, n_IB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
+    ns_I=1, ns_C=1, 
     ny_B=x$n.months_B, ny_A=x$n.months_A, 
-    mu_TA=x$baci_effect, mu_TB=0, mu_CA=0, mu_CB=0, 
+    mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
     sdYear=x$sdYear, sdSite=0, sdSiteYear=x$sdResid, sdResid=0)
   power
 })
@@ -849,7 +845,7 @@ head(power)</code></pre>
 ## 4      1         18         13         0.5  0.05      0 1.741419   0.807142
 ## 5      1         20         13         0.5  0.05      0 1.741419   0.807142
 ## 6      1         12         14         0.5  0.05      0 1.741419   0.807142
-##   sdResid n_TA n_TB n_CA n_CB ns_T ns_C ny_B ny_A mu_TA mu_TB mu_CA mu_CB baci
+##   sdResid n_IA n_IB n_CA n_CB ns_I ns_C ny_B ny_A mu_IA mu_IB mu_CA mu_CB baci
 ## 1       0    1    1    1    1    1    1   12   13   0.5     0     0     0  0.5
 ## 2       0    1    1    1    1    1    1   14   13   0.5     0     0     0  0.5
 ## 3       0    1    1    1    1    1    1   16   13   0.5     0     0     0  0.5

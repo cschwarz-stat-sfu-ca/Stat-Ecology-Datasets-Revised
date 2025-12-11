@@ -327,20 +327,20 @@ plot(diagplot)
 #       We allow for different sample sizes in the treatment-time combinations
 #        but all sites in that combination must have the same number of minnow traps.
 #        It is possible to generalize this; contact me for details.
-#        n_TA   -> number of subsamples in Treatment-After  combination
-#        n_TB   -> number of subsamples in Treatment-Before combination
+#        n_IA   -> number of subsamples in Treatment-After  combination
+#        n_IB   -> number of subsamples in Treatment-Before combination
 #        n_CA   -> number of subsamples in Control-After    combination
 #        n_CB   -> number of subsamples in Control-Before   combination
 #     Number of segments(sites)
 #        We allow for a different number of sites for Treatment and Control areaa
-#        ns_T     -> number of treatment sites (i.e. downstram of the project)
+#        ns_I     -> number of treatment sites (i.e. downstram of the project)
 #        ns_C     -> number of control sites (i.e. upstream of the project)
 #     Number of years of monitoring before/after impact
 #        ny_B     -> number of years monitoring before project starts
 #        ny_A     -> number of years monitoring after  project starts
 #     Marginal Means
 #        These are used to form the BACI contrast of interest
-#        mu_TA, mu_TB, mu_CA, mu_CB (i.e mean of Treatment-After,
+#        mu_IA, mu_IB, mu_CA, mu_CB (i.e mean of Treatment-After,
 #        Treatment-Before, Control-After, Control_Before)
 #        These are chosen based on the size of impact that may be biologically important
 
@@ -364,10 +364,10 @@ plot(diagplot)
 
 
 # An illustration of how to find the power for one scenario
-baci.power(n_TA=3, n_TB=3, n_CA=3, n_CB=3,
-           ns_T=3, ns_C=3, 
+baci.power(n_IA=3, n_IB=3, n_CA=3, n_CB=3,
+           ns_I=3, ns_C=3, 
            ny_B=3, ny_A=2, 
-           mu_TA=5.0, mu_TB=5.5, mu_CA=4.5, mu_CB=4.5, 
+           mu_IA=5.0, mu_IB=5.5, mu_CA=4.5, mu_CB=4.5, 
            sdYear=0.25, sdSite=0.75, sdSiteYear=0.1, sdResid=0.75)
 
 
@@ -391,7 +391,7 @@ cat("Estimated variance components are \n",
 cat("\n")
 
 scenarios <- expand.grid(n_quad=seq(3,9,3),
-                         ns_T = 3, ns_C=3,
+                         ns_I = 3, ns_C=3,
                          ny_B =3,
                          ny_A =c(2,3,4),
                          baci_effect=seq(0,0.8,.1),
@@ -401,10 +401,10 @@ head(scenarios)
 power <- plyr::adply(scenarios,1,function(x){
   #browser()
   power <- baci.power(
-    n_TA=x$n_quad, n_TB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
-    ns_T=x$ns_T, ns_C=x$ns_C, 
+    n_IA=x$n_quad, n_IB=x$n_quad, n_CA=x$n_quad, n_CB=x$n_quad, 
+    ns_I=x$ns_I, ns_C=x$ns_C, 
     ny_B=x$ny_B, ny_A=x$ny_A, 
-    mu_TA=x$baci_effect, mu_TB=0, mu_CA=0, mu_CB=0, 
+    mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
     sdYear=x$sdYear, sdSite=x$sdSite, sdSiteYear=x$sdSiteYear, sdResid=x$sdResid)
   power
 })
@@ -412,13 +412,13 @@ power <- plyr::adply(scenarios,1,function(x){
 head(power)
 
 cat("\n")
-head(power[,c("alpha","n_TA","n_TB","n_CA","n_CB","ny_B","ny_A","ns_T","ns_C","baci","power")])
+head(power[,c("alpha","n_IA","n_IB","n_CA","n_CB","ny_B","ny_A","ns_I","ns_C","baci","power")])
 
 ##***part500e;
 
 
 # sink("baci-fry-power-R-500.txt", split=TRUE)
-power[,c("alpha","n_TA","n_TB","n_CA","n_CB","ny_B","ny_A","ns_T","ns_C","baci","power")]
+power[,c("alpha","n_IA","n_IB","n_CA","n_CB","ny_B","ny_A","ns_I","ns_C","baci","power")]
 # sink()         
 
 
