@@ -436,3 +436,100 @@ power.plot <- ggplot(data=power, aes(x=baci_effect, y=power, color=as.factor(n_q
   facet_wrap(~ny_A, ncol=2, labeller=label_both)
 power.plot
 ##***part510e;
+##*
+
+
+###########################################################################
+###########################################################################
+###########################################################################
+
+# What to do when number of sub-samples is very large and the design matrix is large
+# which makes the power program is very small
+
+
+sdSiteYear= vc[ vc$grp=="YearF:Site",    "sdcor"]
+sdResid   = vc[ vc$grp=="Residual",      "sdcor"]
+sdYear    = vc[ vc$grp=="YearF",         "sdcor"]
+sdSite    = vc[ vc$grp=="Site",          "sdcor"]
+
+##***part900b;
+cat("Estimated variance components are \n",
+    "sdSiteYear ", round(sdSiteYear,2), 
+    ";\n sdSite ",     round(sdSite,2),
+    ";\n sdYear ",     round(sdYear,2),
+    "; \nsdResid ",    round(sdResid,2),"\n")
+cat("\n")
+
+# We can make an equivalent baci design with 1 observations/site-year (the average)
+# and revised sdSiteYear and sdResid
+
+# for example consider a baci design with n_quad=10 in all site.years
+
+cat("\nPower computed using individual observations\n")
+power.indiv <- baci.power(n_IA=10, n_IB=10, n_CA=10, n_CB=10,
+           ns_I=3, ns_C=3, 
+           ny_B=3, ny_A=2, 
+           mu_IA=.4, mu_IB=0, mu_CA=0, mu_CB=0, 
+           sdYear=sdYear, sdSite=sdSite, sdSiteYear=sdSiteYear, sdResid=sdResid)
+power.indiv
+
+
+# this has equivalent power when you analyze the "averages" and create revised sdSiteYear and sdResid
+sdSiteYear.avg <- sqrt(sdSiteYear^2 + sdResid^2/10)
+sdResid.avg    <- 0
+
+cat("\nPower computed using averages\n")
+power.avg <- baci.power(n_IA=1, n_IB=1, n_CA=1, n_CB=1,
+                          ns_I=3, ns_C=3, 
+                          ny_B=3, ny_A=2, 
+                          mu_IA=.4, mu_IB=0, mu_CA=0, mu_CB=0, 
+                          sdYear=sdYear, sdSite=sdSite, sdSiteYear=sdSiteYear.avg, sdResid=sdResid.avg)
+power.avg
+##***part900e;
+
+
+##***part901b;
+scenarios <- expand.grid(n_quad=seq(3,9,3),
+                         ns_I = 3, ns_C=3,
+                         ny_B =3,
+                         ny_A =c(2,3,4),
+                         baci_effect=seq(0,0.8,.1),
+                         sdYear = sdYear, sdSite=sdSite, sdSiteYear=sdSiteYear, sdResid=sdResid)
+cat("Part of the scenarios dataset\n")
+head(scenarios)
+
+power.avg <- plyr::adply(scenarios,1,function(x){
+  #browser()
+  # do the short cut
+  x$sdSiteYear.avg <- sqrt(x$sdSiteYear^2 + x$sdResid^2/x$n_quad) # Note change here
+  x$sdResid.avg    <- 0
+  
+  power <- baci.power(
+    n_IA=1, n_IB=1, n_CA=1, n_CB=1, # notice change here
+    ns_I=x$ns_I, ns_C=x$ns_C, 
+    ny_B=x$ny_B, ny_A=x$ny_A, 
+    mu_IA=x$baci_effect, mu_IB=0, mu_CA=0, mu_CB=0, 
+    sdYear=x$sdYear, sdSite=x$sdSite, 
+    sdSiteYear=x$sdSiteYear.avg, sdResid=x$sdResid.avg) # note change here
+  power
+})
+
+cat("\nPart of the power dataset computed on averages\n")
+head(power.avg)
+##***part901e;
+
+# the power plot on the "averages" is the same as before
+
+##***part910b;
+power.plot <- ggplot(data=power.avg, aes(x=baci_effect, y=power, color=as.factor(n_quad)))+
+  ggtitle("Estimated power computed using short cut",
+          subtitle=paste("alpha: ", power$alpha[1]))+
+  geom_point()+
+  geom_line()+
+  ylim(0,1)+
+  geom_hline(yintercept=0.8, color="blue")+
+  xlab("BACI effect size (log scale)")+
+  scale_color_discrete(name="# quadrats")+
+  facet_wrap(~ny_A, ncol=2, labeller=label_both)
+power.plot
+##***part910e;
