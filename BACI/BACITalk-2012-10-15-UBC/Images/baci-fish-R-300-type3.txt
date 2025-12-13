@@ -1,0 +1,5 @@
+                 numDF denDF   F-value p-value
+(Intercept)          1    23 14.199342  0.0010
+SiteClass            1    23  2.358289  0.1383
+Period               1    23  0.934481  0.3438
+SiteClass:Period     1    23  0.344265  0.5631

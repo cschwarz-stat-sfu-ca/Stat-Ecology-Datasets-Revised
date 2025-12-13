@@ -1,0 +1,10 @@
+\frametitle {BACI Design 4}
+
+{\it R} results (continued):\\
+\vspace{2mm}
+Estimate of Variance Components
+\verbatiminput{Images/baci-fry-R-300-vc.txt}
+
+\vspace{2mm}
+CAUTION: {\it R} labels the results poorly!\\
+

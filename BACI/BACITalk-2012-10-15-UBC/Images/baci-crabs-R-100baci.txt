@@ -1,0 +1,2 @@
+  Estimate Std. Error    t value   Pr(>|t|) 
+ 3.0500000  3.0974183  0.9846910  0.3403935 

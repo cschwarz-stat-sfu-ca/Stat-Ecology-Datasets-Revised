@@ -1,0 +1,5 @@
+  component        sigma       sigma2
+1      Year 2.141448e-01 4.585800e-02
+2      Site 7.669657e-01 5.882364e-01
+3 Year:Site 2.628037e-05 6.906579e-10
+4  Residual 7.234663e-01 5.234035e-01

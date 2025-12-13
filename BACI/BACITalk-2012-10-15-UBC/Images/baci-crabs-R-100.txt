@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: Density
+                 Df  Sum Sq Mean Sq F value    Pr(>F)    
+SiteClass         1 194.695 194.695 17.5877 0.0007827 ***  WRONG
+Period            1  92.205  92.205  8.3293 0.0113100 *    WRONG 
+SiteClass:Period  1  10.734  10.734  0.9696 0.3403935    
+Residuals        15 166.050  11.070                      

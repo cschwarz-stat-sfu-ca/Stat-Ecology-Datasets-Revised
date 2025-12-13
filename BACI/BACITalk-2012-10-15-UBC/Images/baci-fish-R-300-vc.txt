@@ -1,0 +1,4 @@
+SamplingTime = pdLogChol(1) 
+            Variance StdDev  
+(Intercept) 1005.949 31.71670
+Residual     733.040 27.07471

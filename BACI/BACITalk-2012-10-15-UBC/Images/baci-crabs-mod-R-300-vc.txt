@@ -1,0 +1,6 @@
+            Variance     StdDev  
+Site =      pdLogChol(1)         
+(Intercept) 14.683328    3.831883
+Period =    pdLogChol(1)         
+(Intercept)  1.680436    1.296316
+Residual    10.927019    3.305604

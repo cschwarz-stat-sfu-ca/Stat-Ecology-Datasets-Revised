@@ -1,0 +1,1200 @@
+\documentclass{beamer}
+%\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{Images/sas}
+\usepackage{pbox}
+\usepackage{verbatim}
+\usetheme{Warsaw}
+
+\title[BACI]{Design and Analysis of BACI Experiments.
+}
+\author{Carl James Schwarz}\institute{Department of Statistics and Actuarial Science \\ Simon Fraser  University \\ Burnaby, BC, Canada \\ cschwarz @ stat.sfu.ca}
+
+%\date{}
+
+
+% refer to the following URL for hints on beamer
+%        http://www.math.umbc.edu/~rouben/beamer/quickstart-Z-H-27.html#node_sec_27
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[page number]{}
+
+%gets rid of navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% set background color to light shade of blude
+\setbeamercolor{normal text}{bg=blue!12}
+
+% To create 2 x3 handouts 
+% use the Preview program in Macintosh. You can set up the number of slides/page with the layout options 
+% in the usual fashion.
+% Note that Adobe will not let you save a pdf file to another pdf file using the print -> pdf options - you must use Preview
+
+
+
+\begin{document}
+
+%******************************************************************************************************************
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Abstract}
+
+Before-After-Control-Impact (BACI) designs are commonly used to monitor for 
+potential environmental impacts.  We will review the four most common BACI 
+designs highlighting the proper analyses of these designs, their limitations in the 
+interpretation of the results (and alternatives), and what information is required for planning purposes. 
+Finally, we will review alternatives to BACI designs, especially when control information is limited or lacking. 
+
+\vspace{4mm}
+Additional information is available at:
+\begin{itemize}
+\item \url{http://www.stat.sfu.ca/~cschwarz/CourseNotes}
+\item Follow link on above page to {\it Sample Program Library} for
+{\it SAS}, {\it JMP}, and {\it R} code.
+\end{itemize}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Why BACI?}
+
+\begin{itemize}
+\item Temporal changes may be confounded with environmental impact.
+\item Site-differences may be unrelated to environmental impact.
+\end{itemize}
+\includegraphics[height=0.6 \textheight]{Images/BACI-conceptual}\\
+{\bf Non-parallelism in response = Environmental Impact}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Key BACI (hidden) assumption}
+
+\includegraphics[height=0.8 \textheight]{Images/BACI-key-assumption}\\
+
+{\center Step change between Before and After Impact!}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{When is BACI best?}
+
+BACI designs are good for:
+\begin{itemize}
+\item Large potential changes after impact
+\item Changes are permanent after impact
+\item Monitoring to protect against disasters
+\item Monitoring for changes in the MEAN
+\end{itemize}
+ \vspace{1cm}
+ 
+BACI designs are poor for:
+\begin{itemize}
+\item Small potential changes after impact
+\item Gradual changes after impact (i.e.\ not a step change)
+\item Long term monitoring
+\item Monitoring for changes in VARIABILITY
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Four standard BACI Designs}
+Four standard BACI designs:
+\begin{enumerate}
+\item Single impact site; single control site; one year before; one year after.
+\item Single/multiple impact site; multiple control sites; one year before; one year after.
+\item Single impact site; single control site; multiple years before; multiple years after.
+\item Single impact site; multiple control sites; multiple years before; multiple years after.
+\end{enumerate}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-1}\\
+E.g.\ Number of shore crabs on beaches affected by cooling water of power plant measured using independent quadrats each year.
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1 - Decomposition of Effects}
+
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-1-decomposition1.png}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1 - Decomposition of Effects}
+
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-1-decomposition2.png}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1 - Decomposition of Effects}
+
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-1-decomposition3.png}
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+Two-factor completely-randomized design ANOVA.\\
+\vspace{3mm}
+
+{\it SAS} Analysis:\\
+\hspace{1cm} PROC Mixed data=blah;\\
+\hspace{1cm} CLASS Period Siteclass;\\
+\hspace{1cm} MODEL Y = Period~~ Siteclass~~ Period*Siteclass;\\
+\hspace{1cm} ESTIMATE 'BACI Effect' Period*Siteclass 1 -1 -1 1;\\
+
+\vspace{3mm}
+The test of no impact is the test for no interaction, i.e.\ test of $Period*Siteclass$ interaction.\\
+Estimate BACI effect as DIFFERENTIAL change in means between two sites, i.e.\\[-4mm]
+$$BACI=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$$
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+Two-factor completely-randomized design ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (with 4/5/6/4 replicates at site-year combinations):\\[-4mm]
+\input{Images/baci-crabs-SAS-200-type3.tex}
+
+
+\input{Images/baci-crabs-SAS-200-BACIeff.tex}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+
+Two-factor completely-randomized design ANOVA.\\
+\vspace{3mm}
+
+{\it R} Analysis: (Be sure that Period and Siteclass are FACTORS).\\
+\vspace{2mm}
+\hspace{5mm} results<-lm(Y$\sim$Period+ Siteclass+Period:Siteclass, data=blah)\\
+\hspace{5mm} anova(results)\\
+\hspace{5mm} summary(results)\\
+
+\vspace{2mm}
+CAUTION: In {\it R}, you must put the interaction term last if design is unbalanced otherwise the test for interaction is NOT correct.
+
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 1}
+Two-factor completely-randomized design ANOVA.\\
+
+\vspace{3mm}
+{\it R} results:\\[-8mm]
+\begin{verbatim}
+Response: Density
+                 Df  Sum Sq Mean Sq F value    Pr(>F)    
+SiteClass         1 194.695 194.695 17.5877 0.0007827 ***  WRONG
+Period            1  92.205  92.205  8.3293 0.0113100 *    WRONG 
+SiteClass:Period  1  10.734  10.734  0.9696 0.3403935    
+Residuals        15 166.050  11.070                      
+\end{verbatim}
+
+\vspace{2mm} 
+Note that tests for {\it SiteClass} and {\it Period} are MISLEADING 
+and don't test what you think they do!
+
+\vspace{2mm} 
+Estimate of BACI effect is:\\[-8mm]
+\verbatiminput{Images/baci-crabs-R-100baci.txt}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+Assumptions:
+\begin{itemize}
+\item Not necessary for design to be balanced, i.e.\ number of replicates can vary across site-time.
+\item All measurements within and across years at a site are INDEPENDENT of each other
+\item Normality of residuals (but fairly robust IF....)
+\item Equality of variation each each Site $\times$ Period
+\end{itemize}
+
+\vspace{2mm}
+Key Limitations:
+\begin{itemize}
+\item Effect may be an artifact of sites chosen or years chosen.
+\item Inference is LIMITED to those particular sites and years chosen.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+
+\includegraphics[height=0.5 \textheight]{Images/BACI-design-1}\\
+
+Power (see web site for programs) depends on:
+\begin{itemize}
+\item Size of BACI effect $=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$
+\item Std DEV ($\sigma$) of replicates at each site-year combination
+\item Number of replicates at each site-year combination
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 1}
+
+Crabs example: $BACI=-5$, $\sigma=3.32$ 
+
+\verbatiminput{Images/baci-crabs-power-R-500.txt}
+
+\vspace{2mm}
+Aim for about 80\% power at $\alpha=0.05$.
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-2-multicontrols}
+
+E.g.\ Number of shore crabs on beaches affected by cooling water of power plant measured using independent quadrats each year with multiple beaches for controls.
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-2-multicontrols-sourcevar.png}
+
+Three levels of variation: 
+\begin{itemize}
+\item  quadrats-within-a-beach; These are pseudo-replicates. Variability can be reduced by increasing the size of the quadrats.
+\item site-to-site. Site serve a ``blocks'' so main effect site-differences are NOT important.
+\item Site-Year. This represents the inconsistent temporal effects over sites.
+\end{itemize}
+Note that if you only have one quadrat, then quadrat and site*year variation is confounded and cannot be separated.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{BACI Design 2}
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-2-multicontrols-sourcevar.png}\\
+What can you control via modifications to the sampling design?
+\begin{itemize}
+\item Quadrat variation can be controlled by choosing larger quadrats.
+\item Site variation cannot be controlled, but by measuring all sites in all years, site effects ``cancel''.
+\item Site-Year variation cannot be controlled by modifying design. This is the limiting variation for the design.
+\end{itemize}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+Multiple (equivalent) ways to analyze this data:
+\begin{itemize}
+\item Find difference of means for EACH site; analyze the differences in means using $t$-test to see if the mean difference among the controls = mean difference for impact site. [Only approximate analysis if design is unbalanced.]
+\item Mixed Effects ANOVA on the means of each site-year combination.
+\item Mixed Effects ANOVA on the raw data. This is the most general and provides estimates of ALL variance components needed for power analysis.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+Two-factor mixed-effect ANOVA.\\
+
+{\it SAS} Analysis:\\
+\hspace{5mm} PROC Mixed data=blah;\\
+\hspace{5mm} CLASS Period Siteclass Site;\\
+\hspace{5mm} MODEL Y = Period~~ Siteclass~~ Period*Siteclass / ddfm=kr;\\
+\hspace{5mm} RANDOM site(SiteClass) site(Siteclass)*Period;\\
+\hspace{5mm} ESTIMATE 'BACI Effect' Period*Siteclass 1 -1 -1 1;\\
+
+\vspace{3mm}
+The test of no impact is the test for no interaction, i.e.\ test of $Period*Siteclass$ interaction.\\
+Estimate BACI effect as DIFFERENTIAL change in means between two sites, i.e.\\[-4mm]
+$$BACI=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$$
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (2C, 1I site; 30 quadrats in total):\\[-4mm]
+\input{Images/baci-crabs-mod-SAS-300-type3.tex}
+
+\input{Images/baci-crabs-mod-SAS-300-BACIeff.tex}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (continued):\\[-4mm]
+
+\input{Images/baci-crabs-mod-SAS-300-vc.tex}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+
+{\it R} Analysis: (Be sure that Period, Site, and Siteclass are FACTORS).\\
+
+\hspace{5mm} result <- lme(Density $\sim$ SiteClass+Period+SiteClass:Period,\\
+\hspace{15mm} 	              data=blah, \\
+\hspace{15mm} 	              random=$\sim$ 1 | Site / Period)\\
+\hspace{5mm} anova(result)  \# Get the ANOVA Table\\
+\hspace{5mm} summary(result) \# Get the BACI Effect\\
+\hspace{5mm} VarCorr(result) \# Get the variance components\\
+
+\vspace{2mm}
+CAUTION: {\it R} does NOT have a KR adjustment so results may differ from {\it SAS}.\\
+CAUTION: {\it R} {\it lmer()} function can also be used, but doesn't give p-values directly.
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 2}
+
+{\it R} results:\\[-4mm]
+\verbatiminput{Images/baci-crabs-mod-R-300-type3.txt}
+Note that test results differ (slightly) from {\it SAS}
+
+\vspace{2mm} Estimate of BACI effect is:
+\verbatiminput{Images/baci-crabs-mod-R-300baci.txt}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 2}
+
+{\it R} results (continued):\\
+\vspace{2mm} 
+Estimate of Variance Components
+\verbatiminput{Images/baci-crabs-mod-R-300-vc.txt}
+\vspace{2mm}
+CAUTION: {\it R} labels the results poorly!
+
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+Assumptions:
+\begin{itemize}
+\item Not necessary for design to be balanced, i.e.\ number of quadrats can vary among sites and years; not all sites need both before
+and after information.
+\item All measurements within and across sites and years at a site are INDEPENDENT of each other.
+\item All sites are independent of each other.
+\item Normality of residuals (but fairly robust IF....)
+\item Equality of variation each each Site $\times$ Period
+\item Normality of site effects; normality of {\it site*period} interactions. Difficult to assess because typically have a few sites.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+
+\vspace{2mm}
+Key Limitations and Difference from Design 1:
+\begin{itemize}
+\item Inference is now more general to all SITES, not just the 2 particular sites chosen in Design 1. Consequently, there can be
+``loss of power'' but you are comparing two different inferences!
+\item Limiting feature is the {\it site*period} variance component as you cannot influence by more sampling! Consequently, there is benefit
+to sampling more site and/or more quadrats but you need to look at tradeoffs.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+
+\includegraphics[height=0.5 \textheight]{Images/BACI-design-2-multicontrols.png}
+
+Power (see web site for programs) depends on:
+\begin{itemize}
+\item Size of BACI effect $=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$
+\item TWO sources of variation important for planning:
+\begin{itemize}
+\item $\sigma_{quadrat}$ of replicates at each site-year combination
+\item $\sigma_{site*year}$ 
+\end{itemize}
+$\sigma_{site}$ ``cancels' because each site is measured both before and after (A GOOD THING TO DO)!
+\item Number of quadrats, number of sites.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 2}
+
+Crabs example: $BACI=-5$, $\sigma_{quadrats}=3.30$, $\sigma_{site*year}=1.296$ 
+
+\verbatiminput{Images/baci-crabs-mod-power-R-500.txt}
+
+\vspace{2mm}
+Aim for about 80\% power at $\alpha=0.05$.\\
+\vspace{2mm}
+Usually, more sites are preferable to more quadrats/site to improve power.
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-3-multiyear}
+
+E.g.\ Fish counts (minnow traps) measured in control and impacted stream several years before and after impact. Only one measurement taken
+per year per stream (this has implications later).
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-3-multiyear-varcomp.png}
+
+Three levels of variation: 
+\begin{itemize}
+\item  quadrats-within-a-beach; These are pseudo-replicates
+\item year-to-year. External factors that affect all sites the same way. Because measurements are paired within years, this variance component will ``cancel'' in the analysis. 
+\item site*year interaction.  Measures the inconsistency of the response of sites to the temporal effects. 
+\end{itemize}
+Note that if you only have one quadrat, then quadrat and site*year variation is confounded and cannot be separated.
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-3-multiyear-varcomp.png}
+
+What can you control via modifications to the sampling design?
+\begin{itemize}
+\item Quadrat variation can be controlled by choosing larger quadrats.
+\item Year variation cannot be controlled, but by pairing the effects ``cancel''.
+\item Site-Year variation cannot be controlled by modifying design. This is the limiting variation for the design.
+\end{itemize}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+Multiple (equivalent) ways to analyze this data:
+\begin{itemize}
+\item Find difference of means for EACH YEAR; analyze the differences in means using $t$-test to see if the mean difference before is the same as the mean difference after.. [Only approximate analysis if design is unbalanced.]
+\item Mixed Effects ANOVA on the means of each site-year combination.
+\item Mixed Effects ANOVA on the raw data. This is the most general and provides estimates of ALL variance components needed for power analysis.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+Two-factor mixed-effect ANOVA.\\
+
+{\it SAS} Analysis:\\
+\hspace{5mm} PROC Mixed data=blah;\\
+\hspace{5mm} CLASS Period Siteclass Year Site;\\
+\hspace{5mm} MODEL Y = Period~~ Siteclass~~ Period*Siteclass / ddfm=kr;\\
+\hspace{5mm} RANDOM Year(Period) year(Period)*Site;\\
+\hspace{5mm} ESTIMATE 'BACI Effect' Period*Siteclass 1 -1 -1 1;\\
+
+\vspace{3mm}
+The test of no impact is the test for no interaction, i.e.\ test of $Period*Siteclass$ interaction.\\
+Estimate BACI effect as DIFFERENTIAL change in means between two sites, i.e.\\[-4mm]
+$$BACI=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$$
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (25 y; one measurement/year-site combination):\\[-4mm]
+\input{Images/baci-fish-SAS-300-type3.tex}
+
+\input{Images/baci-fish-SAS-300-BACIeff.tex}
+
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (continued)\\[-4mm]
+
+\input{Images/baci-fish-SAS-300-vc.tex}
+Note that if you only have one quadrat, then quadrat and site*year variation is confounded and cannot be separated.
+So the residual variation represents both effects combined.
+
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+
+{\it R} Analysis: (Be sure that Period, {\bf Year --- common error}, and Siteclass are FACTORS).\\
+
+\hspace{5mm} result <- lme(Density $\sim$ SiteClass+Period+SiteClass:Period,\\
+\hspace{15mm} 	              data=blah, \\
+\hspace{15mm} 	              random=$\sim$ 1 | Year / Site)\\
+\hspace{5mm} anova(result)  \# Get the ANOVA Table\\
+\hspace{5mm} summary(result) \# Get the BACI Effect\\
+\hspace{5mm} VarCorr(result) \# Get the variance components\\
+
+\vspace{2mm}
+CAUTION: {\it R} does NOT have a KR adjustment so results may differ from {\it SAS}.\\
+CAUTION: {\it R} {\it lmer()} function can also be used, but doesn't give p-values directly.
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 3}
+
+{\it R} results:\\[-4mm]
+\verbatiminput{Images/baci-fish-R-300-type3.txt}
+
+Note that test results differ (slightly) from {\it SAS}
+
+\vspace{2mm} Estimate of BACI effect is:
+\verbatiminput{Images/baci-fish-R-300baci.txt}
+
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 3}
+
+{\it R} results (continued):\\
+\vspace{2mm} 
+Estimate of Variance Components
+\verbatiminput{Images/baci-fish-R-300-vc.txt}
+
+\vspace{2mm}
+CAUTION: {\it R} labels the results poorly!\\
+Note that if you only have one quadrat, then quadrat and site*year variation is confounded and cannot be separated.
+So the residual variation represents both effects combined.
+
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+Assumptions:
+\begin{itemize}
+\item Not necessary for design to be balanced, i.e.\ number of quadrats can vary among sites and years; not all sites need be measured in all years.
+\item All measurements within and across sites and years at a site are INDEPENDENT of each other.
+\item All sites are independent of each other.
+\item Normality of residuals (but fairly robust IF....)
+\item Equality of variation each each Site $\times$ Year
+\item Normality of year effects; normality of {\it site*year} interactions. Difficult to assess because typically have a few years.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+
+\vspace{2mm}
+Key Limitations and Difference from Design 1:
+\begin{itemize}
+\item Inference is limited to these two sites, but now over ALL years. 
+\item Note that a STEP CHANGE in the mean is assumed (see previous slides)!
+\item Limiting feature is the {\it site*year} variance component as you cannot influence it by better sample design!
+\item There is benefit to sampling more years and/or more quadrats, but you need to look at tradeoffs.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+
+\includegraphics[height=0.5 \textheight]{Images/BACI-design-3-multiyear-varcomp}
+
+Power (see web site for programs) depends on:
+\begin{itemize}
+\item Size of BACI effect $=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$
+\item TWO sources of variation important for planning:
+\begin{itemize}
+\item $\sigma_{quadrat}$ of replicates at each site-year combination
+\item $\sigma_{site*year}$ 
+\end{itemize}
+$\sigma_{year}$ ``cancels' because each site is measured in all years (A GOOD THING TO DO)!
+\item Number of quadrats, number of years before and after impact.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 3}
+
+Fish counts example: $BACI=various$, $\sigma_{quadrats+site*year}=27.07$. [With only 1 measurement/year, you cannot
+separate the two sources of variation.]
+
+\verbatiminput{Images/baci-fish-power-R-500.txt}
+
+\vspace{2mm}
+Aim for about 80\% power at $\alpha=0.05$.\\
+\vspace{2mm}
+Usually, more years are preferable to more quadrats/site to improve power.
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+\includegraphics[height=0.7 \textheight]{Images/BACI-design-4-multiyearmultisite}
+
+E.g.\ Fry counts (minnow traps) measured in several control and impacted streams several years before and after impact. 
+Multiple traps per site-year combination.
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+\includegraphics[height=0.35 \textheight]{Images/BACI-design-4-multiyearmultisite-varcomp.png}
+
+Four levels of variation: 
+\begin{itemize}
+\item  trap-to-trap; These are pseudo-replicates
+\item year-to-year. External factors that affect all sites the same way. Because measurements are paired within years, this variance component will ``cancel'' in the analysis. 
+\item site-to-site. Sites are naturally different. Because all sites measured before and after, this variance component will
+``cancel'' in the analysis.
+\item site*year interaction.  Measures the inconsistency of the response of sites to the temporal effects. 
+\end{itemize}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-4-multiyearmultisite-varcomp.png}
+
+What can you control via modifications to the sampling design?
+\begin{itemize}
+\item Trap variation can be controlled by soaking longer or using larger traps.
+\item Year variation cannot be controlled, but by pairing the effects ``cancel''.
+\item Site variation cannot be controlled, but by measuring same site over time, the effect ``cancel''.
+\item Site-Year variation cannot be controlled by modifying design. This is the limiting variation for the design.
+\end{itemize}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+
+No simple way to analyze this design except via a fully specified mixed-effects model!
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+Two-factor mixed-effect ANOVA.\\
+
+{\it SAS} Analysis:\\
+\hspace{5mm} PROC Mixed data=blah nobound;\\
+\hspace{5mm} CLASS Period Siteclass Site Year;\\
+\hspace{5mm} MODEL Y = Period~~ Siteclass~~ Period*Siteclass / ddfm=kr;\\
+\hspace{5mm} RANDOM Year(Period) site(SiteClass)\\
+\hspace{15mm}               year(Period)*site(SiteClass);\\
+\hspace{5mm} ESTIMATE 'BACI Effect' Period*Siteclass 1 -1 -1 1;\\
+
+\vspace{3mm}
+The test of no impact is the test for no interaction, i.e.\ test of $Period*Siteclass$ interaction.\\
+Estimate BACI effect as DIFFERENTIAL change in means between two sites, i.e.\\[-4mm]
+$$BACI=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})$$
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results:\\[-4mm]
+\input{Images/baci-fry-SAS-300-type3.tex}
+
+\input{Images/baci-fry-SAS-300-BACIeff.tex}
+
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+Two-factor mixed-effect ANOVA.\\
+
+\vspace{3mm}
+{\it SAS} results (continued):\\[-4mm]
+
+\input{Images/baci-fry-SAS-300-vc.tex}
+
+A negative estimate of variance is possible (and just means that the variance component is small, i.e.\ close to zero) which is nice
+for this example.
+
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+
+{\it R} Analysis: (Be sure that Period, {\bf Year --- common error}, Site, and Siteclass are FACTORS).\\
+\vspace{2mm}
+{\Large NOT FOR THE FAINT OF HEART!}\\
+\vspace{2mm}
+\hspace{5mm} SOME R MAGIC - see my website.\\
+\hspace{5mm} anova(result)  \# Get the ANOVA Table\\
+\hspace{5mm} summary(result) \# Get the BACI Effect\\
+\hspace{5mm} VarCorr(result) \# Get the variance components\\
+
+\vspace{2mm}
+CAUTION: {\it R} does NOT have a KR adjustment so results may differ from {\it SAS}.\\
+CAUTION: {\it R} {\it lmer()} function can also be used, but doesn't give p-values directly.
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 4}
+
+{\it R} results:\\[-4mm]
+\verbatiminput{Images/baci-fry-R-300-type3.txt}
+
+Note that test results differ (considerably) from {\it SAS} but the final conclusion is similar. 
+
+\vspace{2mm} Estimate of BACI effect is:
+\verbatiminput{Images/baci-fry-R-300baci.txt}
+
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}[fragile]  % must declare fragile if using \verbatim in the slide
+\frametitle{BACI Design 4}
+
+{\it R} results (continued):\\
+\vspace{2mm} 
+Estimate of Variance Components
+\verbatiminput{Images/baci-fry-R-300-vc.txt}
+
+\vspace{2mm}
+CAUTION: {\it R} labels the results poorly!\\
+
+\end{frame}
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+Assumptions:
+\begin{itemize}
+\item Not necessary for design to be balanced, i.e.\ number of traps can vary among sites and years; not all sites need be measured in all years.
+\item All measurements within and across sites and years at a site are INDEPENDENT of each other.
+\item All sites are independent of each other.
+\item Normality of residuals (but fairly robust IF....)
+\item Equality of variation each each Site $\times$ Year
+\item Normality of year effects; normality of site effects; normality of {\it site*year} interactions. Difficult to assess because typically have a few years.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+
+\vspace{2mm}
+Key Limitations and Difference from Design 1:
+\begin{itemize}
+\item Inference generalized to ALL sites and over ALL years. 
+\item Note that a STEP CHANGE in the mean is assumed (see previous slides)!
+\item Limiting feature is the {\it site*year} variance component as you cannot influence it by better sample design!
+\item There is benefit to sampling more years and/or more quadrats, but you need to look at tradeoffs.
+\end{itemize}
+
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+
+\includegraphics[height=0.4 \textheight]{Images/BACI-design-4-multiyearmultisite-varcomp}
+
+Power (see web site for programs) depends on:
+\begin{itemize}
+\item Size of BACI effect $=(\mu_{ca}-\mu_{cb}) - (\mu_{ta}-\mu_{tb})=5$
+\item TWO sources of variation important for planning:
+\begin{itemize}
+\item $\sigma_{quadrat}$ of replicates at each site-year combination
+\item $\sigma_{site*year}$ 
+\end{itemize}
+Other effects (year and site) ``cancel'' because of pairing and blocking.
+\item Number of quadrats, number of years before and after impact, number of sites impact and control.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{BACI Design 4}
+
+Fish counts example: $BACI=5$, $\sigma_{quadrats}=0.75$, $\sigma_{site*year}=0.1$. 
+
+{\tiny
+\verbatiminput{Images/baci-fry-power-R-500.txt}
+}
+\vspace{2mm}
+Aim for about 80\% power at $\alpha=0.05$.\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI}
+
+What do you do for long-term studies and/or no/few pre-impact measurements?
+\vspace{5mm}
+
+Wiens, J.A., Parker, K. R. (1995).\\
+Analyzing the Effects of Accidental Environmental Impacts: Approaches and Assumptions. \\
+Ecological Applications  5,  1069-1083. \\
+\url{http://dx.doi.org/10.2307/2269355}.
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Spatial Impact-Reference design}
+
+Sampling is performed immediately
+after impact at two sites - the impacted and non-impacted sites.
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d1}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Spatial Regression design}
+
+Sampling is performed at a number of sites 
+over the range of exposure (e.g.\ by the amount of oil washed ashore). A regression
+of abundance against the exposure is drawn.
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d2}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Spatial Matched-pair design}
+
+Sampling is done on randomly selected
+impact sites and control sites that are matched on relevant natural factors, e.g. type 
+of substrate where the shell fish aggregate.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d3}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Temporal Baseline design}
+
+Sometimes, fortuitous surveys have been
+done at the same site before the impact occurred. Sampling takes place at 
+the same site after the impact.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d4}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Temporal Time-series design}
+
+The impacted site is surveyed repeated over
+a long period of time (e.g.\ bi-monthly for 2 years) and the results plotted.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d5}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Temporal-Spatial Pre-post design}
+
+Similar to the classical BACI design except
+that pre/post samples are taken at sites that vary in the degree of exposure to 
+the impact.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d6}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Temporal-Spatial Level-by-time design}
+
+The impact site is measured  over time
+from the time of impact. A control site is also measured over time from the time of impact 
+at the same sampling occasions.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d7}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Temporal-Spatial Impact trend-by-time design}
+
+The Regression design is performed 
+at the impacted site just after impact. The same design is performed at the impacted site
+a year or longer after impact. Both plots of response vs.\ dose are plotted on the same graph.
+
+\vspace{3mm}
+\includegraphics[width=\textwidth]{Images/AccidentalImpacts/acc-imp-d8}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Key Assumptions}
+
+Key assumptions for SPATIAL designs.
+\begin{itemize}
+\item Equal natural factors at impacted and non-impacted areas. However, 
+because contamination was not randomized, there is no guarantee
+of equal natural factors.
+\item Sampling interval is short relative to temporal variation. This 
+guarantees that the measurements show the effect
+of the impact and not just difference that would have occurred
+naturally over time.
+\end{itemize}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Key Assumptions}
+
+Key assumptions for TEMPORAL designs.
+\begin{itemize}
+\item Natural factors are in steady-state equilibrium, i.e. the population
+levels remain the same over time in the absence of an impact.
+\item Differences in sampling personnel and sampling methods over time
+are inconsequential so that the observed differences are related 
+to the impact and not to differences in methods.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Key Assumptions}
+Key assumptions for SPATIAL-TEMPORAL designs.
+\begin{itemize}
+\item  Natural factors and the biological resource are in dynamic equilibrium
+among area. The level of a resource changes similarly for different
+areas -- responding similarly to changing climatic conditions and populations. 
+\item Consistent sampling methods over time.
+\end{itemize}
+\end{frame}
+
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Ranking Designs}
+
+Ability of initial impact and recovery?
+\begin{tabular}{lp{1.0in}p{1.0in}}
+{\bf Design} & {\bf Assessing initial impact} & {\bf Assessing recovery}  \\  \hline
+Spatial Impact-reference & x &          \\
+Spatial Regression       & x &          \\
+Spatial Matched pairs    & x &          \\
+Temporal Baseline        & x &          \\
+Temporal Time series     & x &  x       \\
+ST Pre-post pairs        & x &          \\
+ST Level-by-time         & x &  x       \\
+ST Trend-by-time         & x &  x       \\
+\end{tabular}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Beyond BACI - Defensibility}
+
+Defensibility to determine if impact occurred (4=better)
+\begin{tabular}{lc}
+{\bf Design} & {\bf Ranking}  \\  \hline
+Spatial Impact-reference &   2      \\
+Spatial Regression       &   2      \\
+Spatial Matched pairs    &   2      \\
+Temporal Baseline        &   1      \\
+Temporal Time series     &   2      \\
+ST Pre-post pairs        &   3      \\
+ST Level-by-time         &   4      \\
+ST Trend-by-time         &   4      \\
+\end{tabular}
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Summary}
+
+Four standard BACI designs:
+\begin{enumerate}
+\item Single impact site; single control site; one year before; one year after.
+\item Single/multiple impact site; multiple control sites; one year before; one year after.
+\item Single impact site; single control site; multiple years before; multiple years after.
+\item Single impact site; multiple control sites; multiple years before; multiple years after.
+\end{enumerate}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Summary}
+
+Analysis of such designs
+\begin{itemize}
+\item For all but simple BACI (Design 1), mixed-effect ANOVA needed due to presence of multiple-sources of variation. [Some simplification
+possible under special cases.]
+\item Beware of pseudo-replication (quadrats vs.\ sites).
+\item Single site/single year designs have NARROW inference space.
+\item {\it Excel} - hopeless; {\it R} - you get what you pay for; {\it SAS} - best
+\item See my web pages for examples.
+\end{itemize}
+
+Planning BACI designs
+\begin{itemize}
+\item Need estimates of quadrat-to-quadrat variance and site-year interaction variance.
+\item Site effects and year effects ``cancel'' and can be ignored.
+\item Usually better to do more sites and/or year than to measure more quadrats in each site-year combination.
+\end{itemize}
+
+\end{frame}
+
+%******************************************************************************************************************
+\begin{frame}
+\frametitle{Summary}
+
+\begin{itemize}
+\item Weins and Parker (1995) paper if no or limited pre-impact measurements.
+\end{itemize}
+\vspace{5mm}
+\begin{center}
+DO NOT PANIC!\\
+\vspace{3mm}
+\url{http://www.stat.sfu.ca/~cschwarz/CourseNotes}\\
+\vspace{3mm}
+cschwarz @ stat.sfu.ca
+\end{center}
+\end{frame}
+
+
+\end{document}
