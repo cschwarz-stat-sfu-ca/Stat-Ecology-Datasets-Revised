@@ -30,6 +30,7 @@
 #  http://www.stat.wisc.edu/~bates/PotsdamGLMM/LMMD.pdf
 
 
+library(brms) # for the bayesian fit
 library(ggplot2)
 library(lmerTest)
 library(emmeans)
@@ -533,3 +534,205 @@ power.plot <- ggplot(data=power.avg, aes(x=baci_effect, y=power, color=as.factor
   facet_wrap(~ny_A, ncol=2, labeller=label_both)
 power.plot
 ##***part910e;
+
+
+
+
+##*###################################################################################################
+##*###################################################################################################
+##*###################################################################################################
+##*###################################################################################################
+
+### Bayesian analysis
+
+baci.bayesian <- brms::brm(logfry ~ Period + SiteClass + Period:SiteClass +
+                             (1|YearF)+ (1|Site)+(1|YearF:Site), 
+                           data=fry
+                           ,sample_prior=TRUE
+                           ,seed=23432432)
+
+#brms::pairs(baci.bayesian)
+
+vc.priorsamps.wide<-brms::prior_draws(baci.bayesian)
+vc.priorsamps.wide$Intercept <- NULL
+
+vc.priorsamps.long <- tidyr::pivot_longer(vc.priorsamps.wide,
+                                          cols=names(vc.priorsamps.wide)[-1],
+                                          names_to="vc",
+                                          values_to="prior")
+
+ggplot(data=vc.priorsamps.long, aes(x=prior, y=after_stat(density)))+
+  ggtitle("Prior distribution for the SD in the BACI mode")+
+  geom_histogram(alpha=0.5)+
+  geom_density()+
+  facet_wrap(~vc, ncol=2,scales="free")+
+  xlim(0,20)
+
+
+# We will generate a flat prior with a mean of 0 and an sd of 10 for each fixed parameter
+vc.priorsamp.fixed <- plyr::ldply(c("Intercept","SiteClass","Period","SiteClass:Period"), function(x){
+  data.frame(fixed=x, prior=rnorm(50000,mean=0, sd=50))
+})
+
+
+ggplot(data=vc.priorsamp.fixed, aes(x=prior, y=after_stat(density)))+
+  ggtitle(" Prior distribution for the fixed effects in the BACI model")+
+  geom_histogram(alpha=0.5)+
+  geom_density()+
+  facet_wrap(~fixed, ncol=2,scales="free")
+
+
+  
+# Get the posterior for the BACI contrast
+  
+post.baci <- brms::as_draws_df(baci.bayesian, variable="b_PeriodBefore:SiteClassUpstream")
+post.baci <- plyr::rename(post.baci, c("b_PeriodBefore:SiteClassUpstream"="BACI"))  
+head(post.baci)
+#post.baci <- data.frame(post.baci=unlist(brms::posterior_samples(baci.bayesian, pars="b_PeriodBefore:SiteClassUpstream")))
+
+ggplot(data=post.baci, aes(x=BACI, y=after_stat(density)))+
+  ggtitle(#"Posterior distribution of BACI contrast"
+    " ", subtitle="Red lines indicate 95% credible interval")+
+  geom_histogram(alpha=0.5)+
+  geom_density()+
+  geom_vline(xintercept=0)+
+  geom_vline(xintercept=quantile(post.baci$BACI, prob=c(0.025,0.975)), color="red")
+
+
+# The posterior-belief distribution appears to be slightly peaked just below 0 (the value of 0 indicates no project effect). 
+# The red lines indicate the 95% credible interval for the BACI effect, i.e. the bracket a region that contains
+# 95% of our belief.
+# 
+# The wide distribution indicates that the posterior belief is quite uncertain.
+# We can summarize the posterior belief distribution using summary statistics (mean, sd, and 95% credible interval) are:
+  
+c(mean=mean(post.baci$BACI),
+  sd  =sd  (post.baci$BACI),
+  lci =quantile(post.baci$BACI, prob=0.025),
+  uci =quantile(post.baci$BACI, prob=0.975))
+
+
+# We see that the 
+# 
+# - mean of the posterior belief distribution is close to the estimate of the BACI contrast from
+# the standard linear model fit, 
+# - the SD is close to the baci fit's SE, and 
+# - the upper and lower credible intervals are comparable to the 95% confidence intervals.
+# 
+# This is no accident and is an artefact of the use of noninformative uniform priors and the fairly large dataset
+# where the data "overwhelms" the prior.
+# 
+# So the Bayesian analysis, so far, has not presented anything new. However, we can now made statements about
+# our prior belief of an effect by looking at the previous histogram and computing the proportion of posterior samples in various ways.
+# 
+# For example, we can now say that there is `r round(mean(abs(post.baci$BACI) > .5),2)` posterior belief that the absolute(BACI effect) is
+# 0.5 (a 50% differential in the means) or greater (@fig-post-belief1).
+
+
+post.baci$BACI.g5 <- abs(post.baci$BACI) >= .5
+belief <- mean(abs(post.baci$BACI) > .5)
+
+ggplot(data=post.baci, aes(x=BACI))+
+  ggtitle("Posterior belief that abs(baci contrast)> .5 (corresponding to large effect)",
+       subtitle="Blue are is posterior belief that abs(baci contrast) > .5")+
+  geom_histogram(alpha=0.5, aes(fill=as.factor(BACI.g5)), breaks=seq(-2,2,.1))+
+  #geom_density()+
+  geom_vline(xintercept=0)+
+  geom_vline(xintercept=c(-.5,.5), color="red")+
+  scale_fill_discrete(name="abs(baci) > .5")+
+  annotate("text", label=paste0("Posterior belief abs(baci)>.5: ", round(belief,2)),
+             x=-Inf, y=Inf, hjust=0, vjust=1.5)
+
+
+
+# Similarly, there is a `r round(mean(abs(post.baci$BACI) <= .1),2)` posterior belief that the absolute(BACI effect) is 0.1 or less
+# (@fig-post-belief2).
+
+
+post.baci$BACI.l1 <- abs(post.baci$BACI) <= .1
+belief <- mean(abs(post.baci$BACI) <= .1)
+
+ggplot(data=post.baci, aes(x=BACI))+
+  ggtitle("Posterior belief that abs(baci contrast) < .1 (corresponding to small effect)",
+       subtitle="Blue are is posterior belief that abs(baci contrast) < .1")+
+  geom_histogram(alpha=0.5, aes(fill=as.factor(BACI.l1)), breaks=seq(-2,2,.1))+
+  #geom_density()+
+  geom_vline(xintercept=0)+
+  geom_vline(xintercept=c(-.1,.1), color="red")+
+  scale_fill_discrete(name="abs(baci) < .1")+
+  annotate("text", label=paste0("Posterior belief abs(baci)<.1: ", round(belief,2)),
+            x=-Inf, y=Inf, hjust=0, vjust=1.5) 
+
+
+
+# **So unlike the classical BACI analysis, you can quantify the belief of a large impact or small impact in a natural way.**
+# This is the prime advantage of a Bayesian analysis. 
+# 
+# Confidence intervals cannot be used in this way. As indicated by Kruschke and Liddell (2018):
+# 
+# > Highest density interval vs. confidence interval Here we
+# > reiterate some essential differences between a Bayesian
+# > credible interval (HDI) and a frequentist confidence interval (CI).
+# > An important quality of the posterior 95% HDI is that it really does indicate the 95%
+# > most probable values of the parameter, given the data. The
+# > posterior distribution depends only on the actually observed
+# > data (and the prior), and does not depend on the stopping
+# > or testing intentions of the analyst. The frequentist CI is
+# > often misinterpreted as if it were a posterior distribution,
+# > because what analysts intuitively want from their analysis is
+# > the Bayesian posterior distribution, as we discuss more later.
+# 
+# The Bayesian credible interval does not depend on how many hypothesis tests are being done
+# (i.e., there are no corrections for multiple testing such as Tukey's method).
+# 
+# However, it makes no sense to ask "What is posterior belief of no-effect?" because this would ask for the probability that the
+# baci effect = 0 exactly which is 0. Similarly, it makes no sense to ask "What is the posterior belief of an effect?"
+# because this would ask for the probability that the baci effect $\ne$ 0 which is 1. Only posterior beliefs of intervals
+# are sensible.
+# 
+# We can get a complete summary of a Bayesian fit for all parameters of the model (not shown) in similar ways.
+
+
+# summarize the bayesian fit
+temp <- summary(baci.bayesian)
+temp
+
+
+
+# #### Variance components
+# 
+# We can also get the posterior belief distributions of the variance effects and summarize
+# the posterior-beliefs in @tbl-vc-bayesian.
+
+
+vc.bayesian.1 <- plyr::ldply(temp$random, function(x){
+  x
+})
+vc.bayesian.2 <- temp$spec_pars
+vc.bayesian.2$.id <- "Residual"
+
+vc.bayesian <- plyr::rbind.fill(vc.bayesian.1, vc.bayesian.2)
+#vc.bayesian
+
+vc.bayesian
+
+
+# The mean of the posteriors fairly different from the classical baci fit. This is due, in part, to the influence
+# of the prior distribution for the standard deviations seen earlier. In particular, notice how the
+# estimate variance component for the year.site interaction has been pulled away from 0.
+# 
+# Fortunately, the Site and Year variance components "cancel" when estimating the BACI contrast and so have no impact
+# on the result of interest.
+# 
+# A fuller Bayesian analysis would investigate the sensitivity of the results to different choices of prior distributions
+# 
+# The uncertainty of the variance components (the Est.Error in the above table) is NOT available from a classical baci fit (but 
+# could be obtained with some work).
+
+
+
+
+
+
+
+
